@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "brandfetch": {
+      "source": "membranedev/application-skills",
+      "sourceType": "github",
+      "skillPath": "skills/brandfetch/SKILL.md",
+      "computedHash": "1d6bac74ba5ab881d6c2e6c67a62cef0ea5c469c852f00cecdca191b105308a0"
+    },
+    "gsap": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/gsap/SKILL.md",
+      "computedHash": "ef2658b3705d3fd5c8e38d197b31521553a0bee3b40bda2ab70bf22bd6b88854"
+    },
+    "react-three-fiber": {
+      "source": "vercel-labs/json-render",
+      "sourceType": "github",
+      "skillPath": "skills/react-three-fiber/SKILL.md",
+      "computedHash": "33cfac131cbe9c89b14c4b49ca01e0b0a4a3f9c23bb6c81ac0514143703283e8"
+    },
+    "unsplash-downloader": {
+      "source": "serpdownloaders/skills",
+      "sourceType": "github",
+      "skillPath": "skills/unsplash-downloader/SKILL.md",
+      "computedHash": "a6b59620ae1ed7bf39515e8d9d0e63e6df6020da8f36cca43bdceb6bcdb7e43d"
+    }
+  }
+}

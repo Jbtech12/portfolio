@@ -1,0 +1,109 @@
+.section-testimonials {
+    margin-top: 8rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonials-header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.testimonials-header h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: -0.04em;
+    margin: 0;
+}
+
+/* Marquee layout */
+.testimonials-marquee-outer {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    cursor: default;
+}
+
+.testimonials-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    will-change: transform;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: var(--card-radius);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    width: 380px;
+    flex-shrink: 0;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
+    transform: translateY(-4px);
+}
+
+.quote-icon {
+    font-family: serif;
+    font-size: 5rem;
+    color: var(--accent-blue);
+    opacity: 0.2;
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    line-height: 1;
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    padding-top: 1.5rem;
+}
+
+.testimonial-author-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #111 0%, #333 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.testimonial-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-author-info strong {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.testimonial-author-info span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Dark mode */
+.dark-mode .testimonial-card {
+    background: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.08);
+}

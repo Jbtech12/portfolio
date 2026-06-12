@@ -1,0 +1,241 @@
+/* ── Header ─────────────────────────────────────── */
+.services-header {
+  margin-bottom: 4rem;
+}
+
+.pill-dark {
+  background-color: var(--text-main);
+  color: var(--text-inverse);
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--pill-radius);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.services-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.services-title-row h2 {
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.services-desc {
+  max-width: 450px;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* ── Grid ───────────────────────────────────────── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+/* ── Card shell ─────────────────────────────────── */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card-bg);
+  padding: 2.8rem 2.4rem 2.4rem;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  cursor: default;
+}
+
+.service-card:hover {
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.10),
+    0 0 0 1px var(--brand-glow, rgba(0,0,0,0.08));
+  border-color: transparent;
+}
+
+/* ── Background: glowing primary orb (top-right) ─ */
+.card-orb {
+  position: absolute;
+  top: -90px;
+  right: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: var(--brand-glow, rgba(99,91,255,0.4));
+  filter: blur(64px);
+  opacity: 0.55;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+  z-index: 0;
+}
+
+.service-card:hover .card-orb {
+  opacity: 0.85;
+  transform: scale(1.4);
+}
+
+/* ── Background: secondary orb (bottom-left) ────── */
+.card-orb-secondary {
+  position: absolute;
+  bottom: -80px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--brand-glow, rgba(99,91,255,0.3));
+  filter: blur(55px);
+  opacity: 0.25;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+
+.service-card:hover .card-orb-secondary {
+  opacity: 0.4;
+}
+
+/* ── Background: dot grid ───────────────────────── */
+.card-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(128,128,128,0.13) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Background: hover shine sweep ─────────────── */
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255,255,255,0.055) 50%,
+    transparent 65%
+  );
+  transform: skewX(-12deg);
+  pointer-events: none;
+  transition: left 0.65s cubic-bezier(0.16,1,0.3,1);
+  z-index: 0;
+}
+
+.service-card:hover .card-shine {
+  left: 130%;
+}
+
+/* ── Background: top accent stripe ──────────────── */
+.card-top-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+
+.service-card:hover .card-top-stripe {
+  opacity: 1;
+}
+
+/* ── Content (above all bg layers) ─────────────── */
+.service-icon {
+  position: relative;
+  z-index: 1;
+  width: 76px;
+  height: 76px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  box-shadow:
+    0 8px 28px var(--icon-glow, rgba(0,0,0,0.18)),
+    inset 0 1px 0 rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.18);
+  transition:
+    transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
+    box-shadow 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.12) translateY(-6px);
+  box-shadow:
+    0 22px 44px var(--icon-glow, rgba(0,0,0,0.26)),
+    inset 0 1px 0 rgba(255,255,255,0.28);
+}
+
+/* ── Real brand logo strip ──────────────────────── */
+.service-logo-strip {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 10px 18px;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s ease;
+}
+
+.service-card:hover .service-logo-strip {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.service-brand-logo {
+  height: 30px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Square/icon-only logos (antigravity) — center them */
+.service-brand-logo.logo-sq {
+  max-height: 38px;
+  max-width: 38px;
+  object-position: center center;
+  margin: 0 auto;
+}
+
+.service-card h3 {
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.025em;
+}
+
+.service-card p {
+  position: relative;
+  z-index: 1;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 1.02rem;
+}

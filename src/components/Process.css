@@ -1,0 +1,128 @@
+.section-process {
+    margin-top: 8rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.process-header {
+    margin-bottom: 5rem;
+}
+
+.process-header h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+}
+
+.process-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Progress line that gets drawn by GSAP */
+.process-timeline-wrapper {
+    position: relative;
+}
+
+.process-line-track {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border-color);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.process-line-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--accent-blue);
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+.process-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1024px) {
+    .process-timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+    .process-line-track {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .process-timeline {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.process-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 0 0 2px var(--accent-blue);
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.process-step:hover .step-dot {
+    box-shadow: 0 0 0 5px rgba(0, 102, 255, 0.2);
+}
+
+.step-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--bg-color);
+    text-shadow:
+        -1px -1px 0 var(--text-main),
+         1px -1px 0 var(--text-main),
+        -1px  1px 0 var(--text-main),
+         1px  1px 0 var(--text-main);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.process-step:hover .step-number {
+    opacity: 0.4;
+    text-shadow:
+        -1px -1px 0 var(--accent-blue),
+         1px -1px 0 var(--accent-blue),
+        -1px  1px 0 var(--accent-blue),
+         1px  1px 0 var(--accent-blue);
+}
+
+.step-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.step-content p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 1rem;
+}

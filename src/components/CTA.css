@@ -1,0 +1,79 @@
+.section-cta {
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+}
+
+.cta-container {
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 4rem 2rem;
+    border-radius: var(--card-radius);
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.cta-header {
+    margin-bottom: 2.5rem;
+}
+
+.cta-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.cta-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981; /* Green dot */
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+
+.calendly-wrapper {
+    width: 100%;
+    min-height: 700px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .cta-container {
+        padding: 2.5rem 1rem;
+    }
+    
+    .cta-header {
+        text-align: center;
+    }
+    
+    .availability-badge {
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-color: #f4f5f6; /* very slight gray */
+  --text-main: #000000;
+  --text-muted: #555555;
+  --text-inverse: #ffffff;
+  --accent-blue: #0066FF; 
+  --accent-blue-hover: #0050c9;
+  --border-radius: 24px;
+  --card-radius: 24px;
+  --pill-radius: 9999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --border-color: rgba(0, 0, 0, 0.05);
+  --card-bg: #ffffff;
+}
+
+.dark-mode {
+  --bg-color: #0a0a0a;
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  --text-inverse: #000000;
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: #141414;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Typography */
+h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.text-muted { color: var(--text-muted); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--pill-radius);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: var(--text-inverse);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 102, 255, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--text-main);
+  color: var(--text-inverse);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  background: white;
+  color: var(--accent-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+.btn-secondary .btn-icon {
+  color: var(--text-main);
+}
+
+/* Dark Mode Overrides for Secondary Button */
+.dark-mode .btn-secondary:hover {
+  background-color: #e5e5e5;
+  color: #000000;
+}
+
+.dark-mode .btn-secondary .btn-icon {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.dark-mode .btn-secondary:hover .btn-icon {
+  background-color: #1a1a1a;
+}
+
+/* Split Layout */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Sections */
+.section-services {
+  margin-top: 8rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
