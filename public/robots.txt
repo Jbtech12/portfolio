@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nocode-portfolio.vercel.app/sitemap.xml
+Sitemap: https://jubriltoheeb70.com/sitemap.xml

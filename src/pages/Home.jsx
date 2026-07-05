@@ -8,7 +8,7 @@ import FAQ from '../components/FAQ';
 import CTA from '../components/CTA';
 import '../index.css';
 
-const BASE_URL = 'https://nocode-portfolio.vercel.app';
+const BASE_URL = 'https://jubriltoheeb70.com';
 
 function Home() {
   return (
