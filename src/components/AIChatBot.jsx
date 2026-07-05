@@ -175,8 +175,8 @@ const AIChatBot = () => {
           {!isChatStarted ? (
             <div className="ai-lead-form">
               <div className="ai-form-section">
-                <label>What service are you looking for?</label>
-                <div className="ai-pill-grid">
+                <label id="service-label">What service are you looking for?</label>
+                <div className="ai-pill-grid" role="group" aria-labelledby="service-label">
                   {services.map(s => (
                     <button 
                       key={s} 
@@ -191,8 +191,8 @@ const AIChatBot = () => {
               </div>
 
               <div className="ai-form-section mt-15">
-                <label>What is your estimated budget?</label>
-                <div className="ai-pill-grid">
+                <label id="budget-label">What is your estimated budget?</label>
+                <div className="ai-pill-grid" role="group" aria-labelledby="budget-label">
                   {budgets.map(b => (
                     <button 
                       key={b} 
@@ -208,12 +208,13 @@ const AIChatBot = () => {
 
               <div className="ai-form-section mt-15 mb-20">
                 <div className="ai-label-split">
-                  <label>Tell me about your idea</label>
+                  <label htmlFor="idea-brief">Tell me about your idea</label>
                   <span>Optional</span>
                 </div>
-                <textarea 
+                <textarea
+                  id="idea-brief"
                   className="ai-form-textarea"
-                  placeholder="A brief overview..." 
+                  placeholder="A brief overview..."
                   value={ideaBrief}
                   onChange={(e) => setIdeaBrief(e.target.value)}
                   rows={3}
@@ -278,10 +279,12 @@ const AIChatBot = () => {
                 <div ref={messagesEndRef} style={{ float:"left", clear: "both" }} />
               </div>
 
-              <form className="ai-chat-input-area" onSubmit={handleSend}>
-                <input 
-                  type="text" 
-                  placeholder="Type a message..." 
+              <form className="ai-chat-input-area" onSubmit={handleSend} aria-label="Chat input">
+                <input
+                  type="text"
+                  id="chat-input"
+                  aria-label="Type a message"
+                  placeholder="Type a message..."
                   value={inputVal}
                   onChange={(e) => setInputVal(e.target.value)}
                 />

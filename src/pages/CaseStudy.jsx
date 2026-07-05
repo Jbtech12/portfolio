@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CTA from '../components/CTA';
 import './CaseStudy.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const projectData = {
   1: {
@@ -244,9 +243,15 @@ const CaseStudy = () => {
     return () => ctx.revert();
   }, [id]);
 
+  const BASE_URL = 'https://nocode-portfolio.vercel.app';
+
   if (!project) {
     return (
       <div style={{ paddingTop: '10rem', textAlign: 'center' }}>
+        <Helmet>
+          <title>Project Not Found | Jubril Toheeb</title>
+          <meta name="robots" content="noindex" />
+        </Helmet>
         <h2>Project Not Found</h2>
         <Link to="/" className="btn btn-secondary" style={{ marginTop: '2rem', display: 'inline-flex' }}>
           Return Home
@@ -265,8 +270,25 @@ const CaseStudy = () => {
 
   const techPills = project.techStack.split(',').map(t => t.trim());
 
+  const pageTitle = `${project.title} — ${project.type} | Jubril Toheeb`;
+  const pageDesc = `${project.overview} Built with ${project.techStack} by Jubril Toheeb, a Bubble.io developer and no-code automation expert.`;
+  const canonicalUrl = `${BASE_URL}/case-study/${id}`;
+
   return (
     <div className="case-study-page">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={canonicalUrl} />
+        {project.bgImage && (
+          <meta property="og:image" content={`${BASE_URL}${project.bgImage}`} />
+        )}
+      </Helmet>
+
       {/* Reading progress */}
       <div className="cs-progress-track">
         <div className="cs-progress-bar" ref={progressRef} />
@@ -358,7 +380,12 @@ const CaseStudy = () => {
                 className="cs-gallery-img"
                 onClick={() => setLightboxImg(src)}
               >
-                <img src={src} alt={`${project.title} screenshot ${i + 1}`} />
+                <img
+                  src={src}
+                  alt={`${project.title} — ${project.type} screenshot ${i + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="cs-gallery-zoom">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M3 3h5M3 3v5M17 3h-5M17 3v5M3 17h5M3 17v-5M17 17h-5M17 17v-5" stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -437,11 +464,23 @@ const CaseStudy = () => {
 
       {/* Lightbox */}
       {lightboxImg && (
-        <div className="cs-lightbox" onClick={() => setLightboxImg(null)}>
-          <button className="cs-lightbox-close" onClick={() => setLightboxImg(null)}>✕</button>
+        <div
+          className="cs-lightbox"
+          onClick={() => setLightboxImg(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image lightbox"
+        >
+          <button
+            className="cs-lightbox-close"
+            onClick={() => setLightboxImg(null)}
+            aria-label="Close image"
+          >
+            ✕
+          </button>
           <img
             src={lightboxImg}
-            alt="Full view"
+            alt={`${project.title} full-size screenshot`}
             onClick={e => e.stopPropagation()}
           />
         </div>

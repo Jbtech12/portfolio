@@ -3,8 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Process.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const processSteps = [
   { number: '01', title: 'Discovery & Strategy', desc: 'We dive deep into your business goals, target audience, and feature requirements to map out the perfect nocode architecture.' },
   { number: '02', title: 'Design & UX',           desc: 'Creating high-fidelity, premium designs in Figma that focus on conversion and provide an unmatched user experience.' },
@@ -60,7 +58,7 @@ const Process = () => {
   }, []);
 
   return (
-    <section className="section-process" ref={sectionRef}>
+    <section className="section-process" ref={sectionRef} aria-label="My process">
       <div className="process-header">
         <h2>How I Work</h2>
         <p className="process-subtitle">

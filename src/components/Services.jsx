@@ -3,8 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Services.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 /* ─── Premium SVG Icons ───────────────────────────────── */
 
 const BubbleIcon = () => (
@@ -107,7 +105,7 @@ const MobileIcon = () => (
     <rect x="12.5" y="6" width="11" height="20" rx="2" fill="white" fillOpacity="0.18"/>
     {/* App grid on screen */}
     <rect x="13.5" y="8"    width="3.5" height="3.5" rx="1" fill="white" fillOpacity="0.55"/>
-    <rect x="19"   cy="8"    width="3.5" height="3.5" rx="1" fill="white" fillOpacity="0.55"/>
+    <rect x="19"   y="8"    width="3.5" height="3.5" rx="1" fill="white" fillOpacity="0.55"/>
     <rect x="13.5" y="13.5"  width="3.5" height="3.5" rx="1" fill="white" fillOpacity="0.55"/>
     <rect x="19"   y="13.5"  width="3.5" height="3.5" rx="1" fill="white" fillOpacity="0.55"/>
     {/* Floating UI card above phone */}
@@ -152,7 +150,7 @@ const servicesData = [
   {
     id: 'bubble',
     title: 'Bubble.io',
-    desc: 'Full-stack web applications built for scale without writing code.',
+    desc: 'Full-stack SaaS MVPs and web applications — built fast, designed to scale, no code required.',
     Icon: BubbleIcon,
     logoUrl: '/logos/bubble.svg',
     bg: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
@@ -161,7 +159,7 @@ const servicesData = [
   {
     id: 'xano',
     title: 'Xano',
-    desc: 'Robust, secure, and scalable backend architecture and APIs.',
+    desc: 'Robust, secure, and scalable no-code backend architecture — RESTful APIs built without a line of server code.',
     Icon: XanoIcon,
     logoUrl: '/logos/xano.svg',
     bg: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
@@ -170,7 +168,7 @@ const servicesData = [
   {
     id: 'zapier',
     title: 'Zapier',
-    desc: 'Automating business workflows across thousands of apps effortlessly.',
+    desc: 'Business process automation connecting thousands of apps — eliminate manual work, save hours every week.',
     Icon: ZapierIcon,
     logoUrl: '/logos/zapier.svg',
     bg: 'linear-gradient(135deg, #ff6b35 0%, #f7c59f 100%)',
@@ -179,7 +177,7 @@ const servicesData = [
   {
     id: 'n8n',
     title: 'n8n',
-    desc: 'Advanced, custom workflow automation and data routing.',
+    desc: 'Advanced self-hosted workflow automation — custom data pipelines, API routing, and complex multi-step logic.',
     Icon: N8nIcon,
     logoUrl: '/logos/n8n.svg',
     bg: 'linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)',
@@ -187,8 +185,8 @@ const servicesData = [
   },
   {
     id: 'claude',
-    title: 'AI Vibe Coding',
-    desc: 'Integrating powerful LLMs and AI features using Claude Code.',
+    title: 'AI Integration',
+    desc: 'OpenAI, Claude, and LLM integrations — AI chat, content generation, resume analysis, and intelligent automation.',
     Icon: AIIcon,
     logoUrl: '/logos/claude.svg',
     bg: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
@@ -197,7 +195,7 @@ const servicesData = [
   {
     id: 'antigravity',
     title: 'Anti Gravity',
-    desc: 'Elevating digital experiences with specialized nocode physics.',
+    desc: 'Specialised no-code development agency delivering high-performance digital products and immersive experiences.',
     Icon: OrbitIcon,
     logoUrl: '/logos/antigravity.png',
     logoSquare: true,
@@ -206,8 +204,8 @@ const servicesData = [
   },
   {
     id: 'make',
-    title: 'Make',
-    desc: 'Visual automation platform for building complex multi-step workflows without limits.',
+    title: 'Make.com',
+    desc: 'Visual workflow automation for complex, multi-step business processes — from lead capture to CRM sync and beyond.',
     Icon: MobileIcon,
     logoUrl: '/logos/make.svg',
     bg: 'linear-gradient(135deg, #6D00CC 0%, #E90CF9 100%)',
@@ -216,7 +214,7 @@ const servicesData = [
   {
     id: 'stripe',
     title: 'Stripe',
-    desc: 'Seamless payment processing, subscription billing, and financial integrations.',
+    desc: 'End-to-end payment integration — subscriptions, one-time billing, invoice retrieval, and plan management inside Bubble.',
     Icon: StripeIcon,
     logoUrl: '/logos/stripe.svg',
     bg: 'linear-gradient(135deg, #635bff 0%, #0a2540 100%)',
@@ -225,7 +223,7 @@ const servicesData = [
   {
     id: 'gohighlevel',
     title: 'GoHighLevel',
-    desc: 'All-in-one CRM, marketing automation, pipelines, and sales funnel platform.',
+    desc: 'All-in-one CRM automation — pipelines, campaigns, sub-accounts, and sales funnels configured for your business.',
     Icon: GoHighLevelIcon,
     logoUrl: '/logos/gohighlevel.png',
     bg: 'linear-gradient(135deg, #f97316 0%, #dc2626 100%)',
@@ -275,13 +273,13 @@ const Services = () => {
   };
 
   return (
-    <section className="section-services" ref={sectionRef}>
+    <section className="section-services" ref={sectionRef} id="services" aria-label="Services and expertise">
       <div className="services-header">
         <div className="pill-badge pill-dark">// SERVICES //</div>
         <div className="services-title-row">
           <h2>My Arsenal</h2>
           <p className="services-desc">
-            I build nocode solutions on strategy, execute with speed and refine them with skill using the best platforms available.
+            I build no-code and AI-powered solutions on strategy — from Bubble.io SaaS apps and Xano backends to Make, n8n, and GoHighLevel automation systems.
           </p>
         </div>
       </div>

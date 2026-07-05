@@ -52,7 +52,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="section-testimonials">
+    <section className="section-testimonials" aria-label="Client testimonials">
       <div className="testimonials-header">
         <h2>What founders say</h2>
       </div>

@@ -5,8 +5,6 @@ import './CTA.css';
 
 const CTAParticles = lazy(() => import('./CTAParticles'));
 
-gsap.registerPlugin(ScrollTrigger);
-
 const CTA = () => {
   const sectionRef = useRef();
 
@@ -25,7 +23,7 @@ const CTA = () => {
   }, []);
 
   return (
-    <section className="section-cta" ref={sectionRef}>
+    <section className="section-cta" id="contact" ref={sectionRef} aria-label="Book a meeting">
       <div className="cta-container">
         <Suspense fallback={null}>
           <CTAParticles />
@@ -33,10 +31,10 @@ const CTA = () => {
 
         <div className="cta-header" style={{ position: 'relative', zIndex: 2 }}>
           <h2>Ready to Build?</h2>
-          <p>Whether you need design, development, or both — let's talk about your project.</p>
+          <p>Whether you need a Bubble.io SaaS MVP, AI integration, workflow automation, or a full custom web application — let's talk about your project.</p>
           <div className="availability-badge">
             <span className="status-dot"></span>
-            Currently available for projects starting March 2026
+            Currently available — book a free 30-minute discovery call below
           </div>
         </div>
 

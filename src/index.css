@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Google Fonts loaded via <link> in index.html for non-render-blocking delivery */
 
 :root {
   --bg-color: #f4f5f6; /* very slight gray */
@@ -149,9 +149,36 @@ h1 {
   }
 }
 
+/* Skip navigation link (visible only on focus for keyboard users) */
+.skip-nav-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--accent-blue);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-nav-link:focus {
+  top: 0;
+}
+
 /* Sections */
 .section-services {
   margin-top: 8rem;
   padding-top: 4rem;
   border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

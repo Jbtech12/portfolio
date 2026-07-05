@@ -4,8 +4,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Projects.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const U = (id) => `https://images.unsplash.com/photo-${id}?w=900&q=82&auto=format&fit=crop`;
 
 const projectData = [

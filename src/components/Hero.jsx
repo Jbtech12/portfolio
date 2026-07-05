@@ -71,10 +71,11 @@ const Hero = () => {
             <div className="hero-about-text" ref={subtitleRef}>
               <p>
                 I help entrepreneurs and early-stage startups turn ideas into scalable web apps
-                and MVPs using <strong>Bubble.io</strong> without wasting months or burning investor money.
+                and MVPs — using <strong>Bubble.io</strong>, AI integrations, and workflow automation
+                — without wasting months or burning investor money.
               </p>
-              <button className="read-more-btn mt-1" onClick={toggleModal}>
-                Read More <span>+</span>
+              <button className="read-more-btn mt-1" onClick={toggleModal} aria-label="Read more about what I do">
+                Read More <span aria-hidden="true">+</span>
               </button>
             </div>
 
@@ -123,16 +124,26 @@ const Hero = () => {
                 <HeroOrb />
               </Suspense>
             </div>
-            <img src={jubrilImg} alt="Jubril Toheeb Temidayo" className="hero-portrait" />
+            <img src={jubrilImg} alt="Jubril Toheeb Temidayo — Bubble.io Developer and No-Code Expert" className="hero-portrait" width="480" height="560" />
           </div>
         </div>
       </div>
 
-      <div className={`about-modal-overlay ${isModalOpen ? 'active' : ''}`} onClick={toggleModal}>
-        <div className="about-modal-content" onClick={(e) => e.stopPropagation()}>
-          <button className="close-modal-btn" onClick={toggleModal}>&times;</button>
+      <div
+        className={`about-modal-overlay ${isModalOpen ? 'active' : ''}`}
+        onClick={toggleModal}
+        aria-hidden={!isModalOpen}
+      >
+        <div
+          className="about-modal-content"
+          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <button className="close-modal-btn" onClick={toggleModal} aria-label="Close about modal">&times;</button>
 
-          <h2 className="modal-title">What I bring to the table 🚀</h2>
+          <h2 className="modal-title" id="modal-title">What I bring to the table</h2>
 
           <div className="modal-moved-content">
             <p className="mt-1">Most founders struggle with:</p>
