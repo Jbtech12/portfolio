@@ -243,7 +243,7 @@ const CaseStudy = () => {
     return () => ctx.revert();
   }, [id]);
 
-  const BASE_URL = 'https://jubriltoheeb70.com';
+  const BASE_URL = 'https://www.jubriltoheeb70.com';
 
   if (!project) {
     return (

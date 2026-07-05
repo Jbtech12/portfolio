@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jubriltoheeb70.com/sitemap.xml
+Sitemap: https://www.jubriltoheeb70.com/sitemap.xml
