@@ -44,39 +44,23 @@ const AIChatBot = () => {
     const userMsg = { role: 'user', text: initialContext };
     setMessages([userMsg]);
 
-    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-
-    if (!apiKey) {
-      setMessages(prev => [...prev, { role: 'ai', text: "Hi! My AI core isn't fully active right now (missing API Key), but I got your brief! You can reach out to me directly below." }]);
-      setIsTyping(false);
-      setTimeout(() => setShowSocialsPopup(true), 1500);
-      return;
-    }
-
     try {
       const apiMessages = [
         { role: 'system', content: "You are representing Jubril Toheeb Temidayo, an expert Bubble Developer and Vibe Coder. A potential client just submitted a project brief. Acknowledge their brief professionally, express excitement about their idea/budget, and mention that Jubril will be the one to personally discuss this further. Keep it concise (2-3 sentences max). Don't ask followup questions." },
         { role: 'user', content: initialContext }
       ];
 
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: apiMessages,
-          max_tokens: 150
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: apiMessages })
       });
 
       const data = await response.json();
 
-      if (!response.ok) throw new Error(data.error?.message || 'API Error');
+      if (!response.ok) throw new Error(data.error || 'API Error');
 
-      setMessages(prev => [...prev, { role: 'ai', text: data.choices[0].message.content }]);
+      setMessages(prev => [...prev, { role: 'ai', text: data.reply }]);
     } catch (error) {
       console.error('OpenAI Error:', error);
       setMessages(prev => [...prev, { role: 'ai', text: "Thanks for sharing those details! We'd love to talk to you directly." }]);
@@ -96,13 +80,6 @@ const AIChatBot = () => {
     setIsTyping(true);
     setShowSocialsPopup(false); 
 
-    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-    if (!apiKey) {
-      setMessages(prev => [...prev, { role: 'ai', text: 'API Key missing.' }]);
-      setIsTyping(false);
-      return;
-    }
-
     try {
       const apiMessages = [
         { role: 'system', content: "You are an AI assistant for Jubril, a No-code Bubble developer and Vibe Coder. Be extremely helpful and concise." },
@@ -113,15 +90,15 @@ const AIChatBot = () => {
         { role: 'user', content: userMsg.text }
       ];
 
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-        body: JSON.stringify({ model: 'gpt-3.5-turbo', messages: apiMessages, max_tokens: 150 })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: apiMessages })
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error?.message);
+      if (!response.ok) throw new Error(data.error);
 
-      setMessages(prev => [...prev, { role: 'ai', text: data.choices[0].message.content }]);
+      setMessages(prev => [...prev, { role: 'ai', text: data.reply }]);
     } catch (error) {
       setMessages(prev => [...prev, { role: 'ai', text: 'Error connecting to the network.' }]);
     } finally {
