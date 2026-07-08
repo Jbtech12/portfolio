@@ -1,4 +1,4 @@
-import { useEffect, useRef, lazy, Suspense } from 'react';
+import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './CTA.css';
@@ -7,6 +7,8 @@ const CTAParticles = lazy(() => import('./CTAParticles'));
 
 const CTA = () => {
   const sectionRef = useRef();
+  const calWrapperRef = useRef();
+  const [showCalendar, setShowCalendar] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -20,6 +22,28 @@ const CTA = () => {
       });
     }, sectionRef);
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    // The Cal.com booking page autofocuses an element on load, which makes
+    // the browser auto-scroll this page down to reveal it inside the
+    // iframe — visitors landed on a blank-looking page that immediately
+    // jumped to the bottom. Only mount the iframe once this section is
+    // actually near the viewport, by which point the "scroll into view"
+    // is a no-op instead of hijacking the initial page load.
+    const el = calWrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowCalendar(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -38,12 +62,14 @@ const CTA = () => {
           </div>
         </div>
 
-        <div className="calendly-wrapper cal-wrapper" style={{ position: 'relative', zIndex: 2 }}>
-          <iframe
-            src="https://cal.com/jubril-toheeb-rgh9vp/30min"
-            style={{ width: '100%', height: '700px', border: 'none' }}
-            title="Book a meeting with Jubril"
-          ></iframe>
+        <div className="calendly-wrapper cal-wrapper" ref={calWrapperRef} style={{ position: 'relative', zIndex: 2 }}>
+          {showCalendar && (
+            <iframe
+              src="https://cal.com/jubril-toheeb-rgh9vp/30min"
+              style={{ width: '100%', height: '700px', border: 'none' }}
+              title="Book a meeting with Jubril"
+            ></iframe>
+          )}
         </div>
       </div>
     </section>
