@@ -8,6 +8,7 @@ const HeroOrb = lazy(() => import('./HeroOrb'));
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showSocials, setShowSocials] = useState(false);
+  const [showOrb, setShowOrb] = useState(false);
 
   const authorRef  = useRef();
   const badgeRef   = useRef();
@@ -38,7 +39,17 @@ const Hero = () => {
           opacity: 0, scale: 0.88, duration: 1.0, ease: 'power3.out',
         }, 0.2);
     });
-    return () => ctx.revert();
+
+    // Mount the WebGL orb only after the entrance animation has had time to
+    // run — building its geometry/shaders on the main thread while the GSAP
+    // timeline is in flight was starving requestAnimationFrame and making
+    // the hero text take 10+ seconds to appear.
+    const orbTimer = setTimeout(() => setShowOrb(true), 900);
+
+    return () => {
+      ctx.revert();
+      clearTimeout(orbTimer);
+    };
   }, []);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
@@ -120,9 +131,11 @@ const Hero = () => {
 
           <div className="hero-image-side" ref={imageRef}>
             <div className="hero-canvas-wrapper">
-              <Suspense fallback={null}>
-                <HeroOrb />
-              </Suspense>
+              {showOrb && (
+                <Suspense fallback={null}>
+                  <HeroOrb />
+                </Suspense>
+              )}
             </div>
             <img src={jubrilImg} alt="Jubril Toheeb Temidayo — Bubble.io Developer and No-Code Expert" className="hero-portrait" width="480" height="560" />
           </div>

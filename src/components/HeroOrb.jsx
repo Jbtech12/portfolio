@@ -16,7 +16,7 @@ function Orb() {
   return (
     <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.8}>
       <mesh ref={meshRef}>
-        <icosahedronGeometry args={[1.6, 6]} />
+        <icosahedronGeometry args={[1.6, 3]} />
         <MeshDistortMaterial
           color="#0066FF"
           roughness={0.05}
@@ -82,7 +82,8 @@ export default function HeroOrb() {
   return (
     <Canvas
       camera={{ position: [0, 0, 6], fov: 45 }}
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: false, alpha: true }}
+      dpr={[1, 1.5]}
       style={{ width: '100%', height: '100%', background: 'transparent' }}
     >
       <ambientLight intensity={0.5} />
