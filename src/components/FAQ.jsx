@@ -30,15 +30,27 @@ const faqsData = [
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
+  // Track which reveal targets have scrolled into view. Kept in React state
+  // (rather than an imperative classList.add) so React owns the full
+  // className — otherwise re-rendering an item on open/close would clobber
+  // the observer-added 'faq-visible' class and leave the item stuck at
+  // opacity: 0.
+  const [revealedKeys, setRevealedKeys] = useState(() => new Set());
   const sectionRef = useRef();
 
   useEffect(() => {
-    const targets = sectionRef.current.querySelectorAll('.faq-reveal');
+    const targets = sectionRef.current.querySelectorAll('[data-reveal-key]');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('faq-visible');
+            const { revealKey } = entry.target.dataset;
+            setRevealedKeys((prev) => {
+              if (prev.has(revealKey)) return prev;
+              const next = new Set(prev);
+              next.add(revealKey);
+              return next;
+            });
             observer.unobserve(entry.target);
           }
         });
@@ -53,7 +65,10 @@ const FAQ = () => {
 
   return (
     <section className="section-faq" ref={sectionRef} aria-label="Frequently Asked Questions">
-      <div className="faq-header faq-reveal">
+      <div
+        className={`faq-header faq-reveal ${revealedKeys.has('header') ? 'faq-visible' : ''}`}
+        data-reveal-key="header"
+      >
         <h2>Frequently Asked Questions</h2>
       </div>
 
@@ -64,7 +79,8 @@ const FAQ = () => {
           return (
             <div
               key={index}
-              className={`faq-item faq-reveal ${isOpen ? 'open' : ''}`}
+              data-reveal-key={index}
+              className={`faq-item faq-reveal ${revealedKeys.has(String(index)) ? 'faq-visible' : ''} ${isOpen ? 'open' : ''}`}
               style={{ transitionDelay: `${index * 0.08}s` }}
             >
               <button

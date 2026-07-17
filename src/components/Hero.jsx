@@ -18,8 +18,32 @@ const Hero = () => {
   const imageRef   = useRef();
 
   useEffect(() => {
+    const heroEls = [
+      authorRef.current,
+      badgeRef.current,
+      h1Ref.current,
+      subtitleRef.current,
+      ...(ctaRef.current ? Array.from(ctaRef.current.children) : []),
+      imageRef.current,
+    ].filter(Boolean);
+
+    // If the visitor prefers reduced motion, skip the entrance entirely —
+    // the content is fully visible from CSS defaults — and just mount the orb.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setShowOrb(true);
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.15 });
+      const tl = gsap.timeline({
+        delay: 0.15,
+        // Mount the WebGL orb only once the entrance animation has finished.
+        // Building its geometry/shaders on the main thread while the GSAP
+        // timeline is in flight starves requestAnimationFrame — on slower
+        // mobile devices that froze the tweens mid-flight and left the whole
+        // hero stuck at opacity: 0 ("hero doesn't show on mobile").
+        onComplete: () => setShowOrb(true),
+      });
       tl.from(authorRef.current, {
           opacity: 0, y: 30, duration: 0.7, ease: 'power3.out',
         })
@@ -40,15 +64,18 @@ const Hero = () => {
         }, 0.2);
     });
 
-    // Mount the WebGL orb only after the entrance animation has had time to
-    // run — building its geometry/shaders on the main thread while the GSAP
-    // timeline is in flight was starving requestAnimationFrame and making
-    // the hero text take 10+ seconds to appear.
-    const orbTimer = setTimeout(() => setShowOrb(true), 900);
+    // Safety net: the timeline's `from` tweens set every element to opacity 0
+    // immediately, then animate back to visible. If requestAnimationFrame is
+    // starved or the timeline is interrupted before it runs, the hero would
+    // stay invisible. This guarantees the content is shown regardless.
+    const safety = setTimeout(() => {
+      gsap.set(heroEls, { clearProps: 'opacity,transform,scale' });
+      setShowOrb(true);
+    }, 3500);
 
     return () => {
       ctx.revert();
-      clearTimeout(orbTimer);
+      clearTimeout(safety);
     };
   }, []);
 
