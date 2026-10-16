@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './AIChatBot.css';
 import jubrilImg from '../assets/jubril.jpeg';
 
-const services = ['Full-Stack + Bubble', 'UI/UX Design', 'Bubble Dev', 'Other'];
+const services = ['AI Automation', 'GoHighLevel / CRM', 'n8n / Make Workflows', 'Web App / Other'];
 const budgets = ['< $1k', '$1k - $3k', '$3k - $5k', '$5k+'];
 
 const AIChatBot = () => {
@@ -46,7 +46,7 @@ const AIChatBot = () => {
 
     try {
       const apiMessages = [
-        { role: 'system', content: "You are representing Jubril Toheeb Temidayo, an expert Bubble Developer and Vibe Coder. A potential client just submitted a project brief. Acknowledge their brief professionally, express excitement about their idea/budget, and mention that Jubril will be the one to personally discuss this further. Keep it concise (2-3 sentences max). Don't ask followup questions." },
+        { role: 'system', content: "You are representing Jubril Toheeb Temidayo, an AI Automation Specialist and GoHighLevel developer who also builds web apps. A potential client just submitted a project brief. Acknowledge their brief professionally, express excitement about their idea/budget, and mention that Jubril will be the one to personally discuss this further. Keep it concise (2-3 sentences max). Don't ask followup questions." },
         { role: 'user', content: initialContext }
       ];
 
@@ -82,7 +82,7 @@ const AIChatBot = () => {
 
     try {
       const apiMessages = [
-        { role: 'system', content: "You are an AI assistant for Jubril, a No-code Bubble developer and Vibe Coder. Be extremely helpful and concise." },
+        { role: 'system', content: "You are an AI assistant for Jubril, an AI Automation Specialist and GoHighLevel developer. He builds AI lead qualification, n8n and Make automations, AI agents, and GoHighLevel CRM pipelines and funnels, and also builds web apps (including with Bubble). Visitors can book a free 30-minute automation audit at https://cal.com/jubril-toheeb-rgh9vp/30min. Be extremely helpful and concise." },
         ...messages.map(m => ({
           role: m.role === 'ai' ? 'assistant' : 'user',
           content: m.text
@@ -240,7 +240,7 @@ const AIChatBot = () => {
                     <div className="ai-socials-card">
                       <div className="social-card-header">
                         <h4>Contact me directly! 👇</h4>
-                        <p>I am a Bubble developer and Vibe Coder.</p>
+                        <p>I build AI automations and GoHighLevel systems.</p>
                       </div>
                       <div className="social-buttons-grid">
                         <a href={getWhatsAppLink()} target="_blank" rel="noreferrer" className="s-btn w-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight:'6px'}}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> WhatsApp</a>

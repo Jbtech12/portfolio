@@ -148,33 +148,6 @@ const GoHighLevelIcon = () => (
 
 const servicesData = [
   {
-    id: 'bubble',
-    title: 'Bubble.io',
-    desc: 'Full-stack SaaS MVPs and web applications — built fast, designed to scale, no code required.',
-    Icon: BubbleIcon,
-    logoUrl: '/logos/bubble.svg',
-    bg: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
-    glow: 'rgba(79,70,229,0.35)',
-  },
-  {
-    id: 'xano',
-    title: 'Xano',
-    desc: 'Robust, secure, and scalable no-code backend architecture — RESTful APIs built without a line of server code.',
-    Icon: XanoIcon,
-    logoUrl: '/logos/xano.svg',
-    bg: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
-    glow: 'rgba(245,158,11,0.35)',
-  },
-  {
-    id: 'zapier',
-    title: 'Zapier',
-    desc: 'Business process automation connecting thousands of apps — eliminate manual work, save hours every week.',
-    Icon: ZapierIcon,
-    logoUrl: '/logos/zapier.svg',
-    bg: 'linear-gradient(135deg, #ff6b35 0%, #f7c59f 100%)',
-    glow: 'rgba(255,107,53,0.35)',
-  },
-  {
     id: 'n8n',
     title: 'n8n',
     desc: 'Advanced self-hosted workflow automation — custom data pipelines, API routing, and complex multi-step logic.',
@@ -193,14 +166,13 @@ const servicesData = [
     glow: 'rgba(139,92,246,0.35)',
   },
   {
-    id: 'antigravity',
-    title: 'Anti Gravity',
-    desc: 'Specialised no-code development agency delivering high-performance digital products and immersive experiences.',
-    Icon: OrbitIcon,
-    logoUrl: '/logos/antigravity.png',
-    logoSquare: true,
-    bg: 'linear-gradient(135deg, #10b981 0%, #34d399 100%)',
-    glow: 'rgba(16,185,129,0.35)',
+    id: 'gohighlevel',
+    title: 'GoHighLevel',
+    desc: 'All-in-one CRM automation — pipelines, campaigns, sub-accounts, and sales funnels configured for your business.',
+    Icon: GoHighLevelIcon,
+    logoUrl: '/logos/gohighlevel.png',
+    bg: 'linear-gradient(135deg, #f97316 0%, #dc2626 100%)',
+    glow: 'rgba(249,115,22,0.38)',
   },
   {
     id: 'make',
@@ -212,22 +184,50 @@ const servicesData = [
     glow: 'rgba(109,0,204,0.38)',
   },
   {
+    id: 'zapier',
+    title: 'Zapier',
+    desc: 'Business process automation connecting thousands of apps — eliminate manual work, save hours every week.',
+    Icon: ZapierIcon,
+    logoUrl: '/logos/zapier.svg',
+    bg: 'linear-gradient(135deg, #ff6b35 0%, #f7c59f 100%)',
+    glow: 'rgba(255,107,53,0.35)',
+  },
+  {
     id: 'stripe',
     title: 'Stripe',
-    desc: 'End-to-end payment integration — subscriptions, one-time billing, invoice retrieval, and plan management inside Bubble.',
+    desc: 'End-to-end payment integration — subscriptions, one-time billing, invoice retrieval, and plan management inside your app or CRM.',
     Icon: StripeIcon,
     logoUrl: '/logos/stripe.svg',
     bg: 'linear-gradient(135deg, #635bff 0%, #0a2540 100%)',
     glow: 'rgba(99,91,255,0.40)',
   },
   {
-    id: 'gohighlevel',
-    title: 'GoHighLevel',
-    desc: 'All-in-one CRM automation — pipelines, campaigns, sub-accounts, and sales funnels configured for your business.',
-    Icon: GoHighLevelIcon,
-    logoUrl: '/logos/gohighlevel.png',
-    bg: 'linear-gradient(135deg, #f97316 0%, #dc2626 100%)',
-    glow: 'rgba(249,115,22,0.38)',
+    id: 'bubble',
+    title: 'Bubble.io',
+    desc: 'Full-stack SaaS MVPs and web applications — built fast, designed to scale, no code required.',
+    Icon: BubbleIcon,
+    logoUrl: '/logos/bubble.svg',
+    bg: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
+    glow: 'rgba(79,70,229,0.35)',
+  },
+  {
+    id: 'xano',
+    title: 'Xano',
+    desc: 'Robust, secure, and scalable no-code backend architecture — RESTful APIs built without a line of server code.',
+    Icon: XanoIcon,
+    logoUrl: '/logos/xano.svg',
+    bg: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
+    glow: 'rgba(245,158,11,0.35)',
+  },
+  {
+    id: 'antigravity',
+    title: 'Anti Gravity',
+    desc: 'Specialised no-code development agency delivering high-performance digital products and immersive experiences.',
+    Icon: OrbitIcon,
+    logoUrl: '/logos/antigravity.png',
+    logoSquare: true,
+    bg: 'linear-gradient(135deg, #10b981 0%, #34d399 100%)',
+    glow: 'rgba(16,185,129,0.35)',
   },
 ];
 
@@ -279,7 +279,7 @@ const Services = () => {
         <div className="services-title-row">
           <h2>My Arsenal</h2>
           <p className="services-desc">
-            I build no-code and AI-powered solutions on strategy — from Bubble.io SaaS apps and Xano backends to Make, n8n, and GoHighLevel automation systems.
+            I build AI-powered automation on strategy — from n8n and Make workflows and AI agents to GoHighLevel CRM systems, plus Bubble.io web apps when you need one.
           </p>
         </div>
       </div>

@@ -102,15 +102,15 @@ const Hero = () => {
             </div>
 
             <h1 ref={h1Ref}>
-              Building a startup is hard.<br />
-              Building the right product <span className="text-muted">doesn't have to be.</span>
+              Still chasing leads by hand?<br />
+              Let AI <span className="text-muted">do the work.</span>
             </h1>
 
             <div className="hero-about-text" ref={subtitleRef}>
               <p>
-                I help entrepreneurs and early-stage startups turn ideas into scalable web apps
-                and MVPs — using <strong>Bubble.io</strong>, AI integrations, and workflow automation
-                — without wasting months or burning investor money.
+                I help founders and small businesses automate lead follow-up, sales pipelines and
+                busywork with <strong>AI</strong>, <strong>n8n</strong> and <strong>GoHighLevel</strong>,
+                so no lead goes cold and your team gets hours back every week.
               </p>
               <button className="read-more-btn mt-1" onClick={toggleModal} aria-label="Read more about what I do">
                 Read More <span aria-hidden="true">+</span>
@@ -118,17 +118,17 @@ const Hero = () => {
             </div>
 
             <div className="hero-cta-group" style={{ position: 'relative' }} ref={ctaRef}>
+              <a href="https://cal.com/jubril-toheeb-rgh9vp/30min" className="btn btn-primary" target="_blank" rel="noreferrer">
+                Book a free audit
+                <span className="btn-icon">→</span>
+              </a>
               <button
-                className="btn btn-primary"
+                className="btn btn-secondary"
                 onClick={() => setShowSocials(!showSocials)}
               >
                 Send me a message
                 <span className="btn-icon">→</span>
               </button>
-              <a href="#projects" className="btn btn-secondary">
-                View my work
-                <span className="btn-icon">→</span>
-              </a>
 
               {showSocials && (
                 <div className="social-popup-menu">
@@ -164,7 +164,7 @@ const Hero = () => {
                 </Suspense>
               )}
             </div>
-            <img src={jubrilImg} alt="Jubril Toheeb Temidayo — Bubble.io Developer and No-Code Expert" className="hero-portrait" width="480" height="560" />
+            <img src={jubrilImg} alt="Jubril Toheeb Temidayo — AI Automation Specialist and GoHighLevel Developer" className="hero-portrait" width="480" height="560" />
           </div>
         </div>
       </div>
@@ -188,34 +188,34 @@ const Hero = () => {
           <div className="modal-moved-content">
             <p className="mt-1">Most founders struggle with:</p>
             <ul className="hero-bullet-list" style={{ color: 'var(--text-main)', paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
-              <li>Turning their idea into a working product</li>
-              <li>Choosing the right tech stack</li>
-              <li>Building systems that won't break when users grow</li>
-              <li>Integrating payments, AI, and automation tools</li>
+              <li>Leads going cold before anyone replies</li>
+              <li>Hours lost copying data between tools</li>
+              <li>A CRM the team doesn't trust</li>
+              <li>Follow-ups that depend on someone remembering</li>
             </ul>
             <p className="mt-1"><strong>That's where I come in.</strong></p>
-            <p>I design and build clean, scalable, and investor-ready applications with:</p>
+            <p>I build automations that run the busywork for you:</p>
           </div>
 
           <ul className="hero-check-list modal-check-list mt-1">
-            <li>✅ MVP & SaaS development in Bubble</li>
-            <li>✅ Smart database & workflow architecture</li>
-            <li>✅ Stripe payments, subscriptions & invoicing</li>
-            <li>✅ OpenAI & AI feature integrations</li>
+            <li>✅ AI lead qualification & AI agents</li>
+            <li>✅ GoHighLevel CRM, pipelines & funnels</li>
             <li>✅ n8n, Zapier & Make automation systems</li>
+            <li>✅ OpenAI & Claude integrations</li>
+            <li>✅ Stripe payments, subscriptions & invoicing</li>
             <li>✅ Third-party API integrations</li>
-            <li>✅ Performance optimization & scalability setup</li>
-            <li>✅ Version control & security audits</li>
+            <li>✅ Error alerts, so nothing fails silently</li>
+            <li>✅ Web apps & MVPs in Bubble</li>
           </ul>
 
           <p className="mt-1">
-            I don't just "build apps." I help founders avoid costly rebuilds by designing systems correctly from day one.
+            I don't just connect tools. I design automations that keep working as your business grows.
           </p>
           <div className="modal-highlight-box mt-1">
             <p className="highlight-text">
               If you're looking for a technical partner who understands both product thinking and execution, let's talk.
             </p>
-            <p className="mt-1">📩 Send me a message with your idea. I'll tell you the best way to build it.</p>
+            <p className="mt-1">📅 Book a free 30-minute audit and I'll show you what to automate first.</p>
           </div>
 
           <a href="#contact" className="btn btn-primary mt-2" onClick={toggleModal} style={{ width: '100%', justifyContent: 'center' }}>

@@ -14,12 +14,12 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Jubril Toheeb | Bubble.io Developer & No-Code Automation Expert</title>
-        <meta name="description" content="Jubril Toheeb is a Bubble.io developer and no-code automation expert helping startups build scalable web apps, SaaS MVPs, AI integrations, and workflow automation with Make, n8n, and GoHighLevel." />
+        <title>Jubril Toheeb | AI Automation Specialist & GoHighLevel Developer</title>
+        <meta name="description" content="Jubril Toheeb builds AI automation and GoHighLevel systems for founders and small businesses: AI lead qualification, n8n and Make workflows, AI agents, and GHL CRM pipelines, so no lead goes cold." />
         <link rel="canonical" href={`${BASE_URL}/`} />
         <meta property="og:url" content={`${BASE_URL}/`} />
-        <meta property="og:title" content="Jubril Toheeb | Bubble.io Developer & No-Code Automation Expert" />
-        <meta property="og:description" content="Jubril builds scalable web apps, SaaS MVPs, and AI automation systems using Bubble.io, Make, n8n, GoHighLevel, and Stripe. Available for freelance projects." />
+        <meta property="og:title" content="Jubril Toheeb | AI Automation Specialist & GoHighLevel Developer" />
+        <meta property="og:description" content="AI lead qualification, n8n and Make automations, AI agents, and GoHighLevel CRM builds for founders and small businesses. Book a free 30-minute automation audit." />
       </Helmet>
 
       <a href="#main-content" className="skip-nav-link">Skip to main content</a>
