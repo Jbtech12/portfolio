@@ -7,6 +7,7 @@ import './Projects.css';
 const U = (id) => `https://images.unsplash.com/photo-${id}?w=900&q=82&auto=format&fit=crop`;
 
 const projectData = [
+  { id: 8, title: 'Automation Guardian',  type: 'AI GoHighLevel Workflow Auditor', bg: `linear-gradient(160deg, rgba(15,23,42,0.78) 0%, rgba(15,23,42,0.9) 100%), url("/automation_guardian_1.png") center top/cover no-repeat`, gridArea: 'p8' },
   { id: 1, title: 'Alliance Travel',      type: 'Online Booking Platform', bg: `linear-gradient(160deg, rgba(15,23,42,0.25) 0%, rgba(15,23,42,0.72) 100%), url("${U('1504150558240-0b4fd8946624')}") center/cover no-repeat`,    gridArea: 'p1' },
   { id: 2, title: 'NBA Player Props',     type: 'Sports Analytics',        bg: `linear-gradient(160deg, rgba(15,23,42,0.18) 0%, rgba(15,23,42,0.75) 100%), url("${U('1577471488278-16eec37ffcc2')}") center/cover no-repeat`,     gridArea: 'p2' },
   { id: 3, title: 'UloSpaces',            type: 'Rental Platform',         bg: `linear-gradient(160deg, rgba(15,23,42,0.22) 0%, rgba(15,23,42,0.70) 100%), url("${U('1642976975710-1d8890dbf5ab')}") center/cover no-repeat`,     gridArea: 'p3' },
