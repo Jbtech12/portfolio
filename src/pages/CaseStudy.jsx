@@ -145,6 +145,27 @@ const projectData = {
     gallery: ['/pos_dashboard.png', '/pos_cashier.png', '/pos_inventory.png'],
     video: '',
   },
+  8: {
+    title: 'Automation Guardian',
+    type: 'AI GoHighLevel Workflow Auditor',
+    role: 'Founder & Full-stack Developer',
+    timeline: 'Live, launching on the HighLevel Marketplace',
+    techStack: 'Next.js, TypeScript, Convex, Clerk, OpenAI, HighLevel API, Vercel',
+    overview: 'A SaaS that audits every workflow in a GoHighLevel sub-account, scores its health and explains each issue in plain English, without ever changing a thing.',
+    challenge: 'Agencies build GoHighLevel workflows fast: duplicate an old one, tweak it, ship it. Months later a sub-account holds 100+ workflows, with forgotten drafts and duplicates nobody can tell apart, and leads quietly get the same message twice or none at all. Agencies had no quick, safe way to see what was actually running. Any tool that helps has to be read-only and trustworthy with client credentials.',
+    solution: 'I designed and built Automation Guardian end to end. Agencies connect a sub-account through HighLevel OAuth with read-only access; a rules engine checks every workflow and ranks findings by severity, and OpenAI turns each issue into a plain-English explanation with its business impact and fix. Results roll up into a health score, trends and a shareable client report. Security came first: tokens are encrypted with AES-256-GCM and bound to their owner, every backend function checks ownership, and billing runs through HighLevel Marketplace webhooks verified with Ed25519 signatures. I also red-teamed the live app and hardened it against webhook replays, AI cost abuse and plan-limit bypasses.',
+    results: [
+      'Audited a real 125-workflow sub-account in under a second',
+      'Read-only by design: it never edits, publishes or deletes anything in HighLevel',
+      'Honest reporting: checks HighLevel can\'t supply data for show as "Not checked", never a fake pass',
+      'Free and Pro ($29/month) plans billed natively through the HighLevel Marketplace',
+      'AI explanations cached per rule with a daily cap, keeping OpenAI costs flat as usage grows',
+      'Shipped with 84 automated tests and deployed on Vercel and Convex',
+    ],
+    bgImage: '/automation_guardian_1.png',
+    gallery: ['/automation_guardian_2.png', '/automation_guardian_3.png', '/automation_guardian_4.png'],
+    video: '/automation_guardian.mp4',
+  },
 };
 
 /* ── Small helpers ── */
