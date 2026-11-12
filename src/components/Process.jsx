@@ -4,10 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Process.css';
 
 const processSteps = [
-  { number: '01', title: 'Discovery & Strategy', desc: 'We dive deep into your business goals, target audience, and feature requirements to map out the perfect nocode architecture.' },
-  { number: '02', title: 'Design & UX',           desc: 'Creating high-fidelity, premium designs in Figma that focus on conversion and provide an unmatched user experience.' },
-  { number: '03', title: 'Agile Development',     desc: 'Rapid implementation using tools like Bubble or Webflow. You get weekly updates and testable versions throughout.' },
-  { number: '04', title: 'Launch & Iterate',      desc: 'Rigorous testing, followed by a smooth launch. We monitor performance and make data-driven tweaks to maximize ROI.' },
+  { number: '01', title: 'Discovery & Planning',      desc: 'Understanding your business goals, challenges, target audience and project requirements.' },
+  { number: '02', title: 'Strategy & Design',         desc: 'Planning the application architecture, user journeys, features and interface.' },
+  { number: '03', title: 'Development & Integration', desc: 'Building the application, implementing backend systems, connecting APIs and configuring automations.' },
+  { number: '04', title: 'Testing & Optimization',    desc: 'Testing every feature, resolving issues and improving the overall user experience.' },
+  { number: '05', title: 'Deployment & Support',      desc: 'Launching the solution and providing ongoing improvements and technical support.' },
 ];
 
 const Process = () => {
@@ -62,7 +63,7 @@ const Process = () => {
       <div className="process-header">
         <h2>How I Work</h2>
         <p className="process-subtitle">
-          A streamlined, risk-free process designed to take your idea to a live, converting product in record time.
+          My development process: understand the problem, design the right solution and build technology that delivers real value.
         </p>
       </div>
 

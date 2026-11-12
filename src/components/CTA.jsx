@@ -54,8 +54,8 @@ const CTA = () => {
         </Suspense>
 
         <div className="cta-header" style={{ position: 'relative', zIndex: 2 }}>
-          <h2>Ready to Build?</h2>
-          <p>Whether you need a Bubble.io SaaS MVP, AI integration, workflow automation, or a full custom web application — let's talk about your project.</p>
+          <h2>Let's Build Something Great</h2>
+          <p>Have an idea for a SaaS product? Need a custom web application? Want to integrate AI into your business or automate repetitive operations? Let's discuss your project and how technology can help your business work smarter. Let's Build. Automate. Innovate.</p>
           <div className="availability-badge">
             <span className="status-dot"></span>
             Currently available — book a free 30-minute discovery call below

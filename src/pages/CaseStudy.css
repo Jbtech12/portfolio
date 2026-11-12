@@ -225,6 +225,8 @@
 .cs-gallery-3 { grid-template-columns: repeat(3, 1fr); }
 .cs-gallery-2 { grid-template-columns: repeat(2, 1fr); }
 .cs-gallery-1 { grid-template-columns: 1fr; }
+.cs-gallery-phone { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.cs-gallery-phone .cs-gallery-img { aspect-ratio: 1206 / 2622; }
 
 .cs-gallery-img {
   position: relative;

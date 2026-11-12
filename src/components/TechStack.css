@@ -1,0 +1,49 @@
+.section-stack {
+  margin-top: 8rem;
+}
+
+.stack-header {
+  margin-bottom: 3rem;
+}
+
+.stack-header h2 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.stack-group {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  padding: 1.6rem 1.5rem;
+}
+
+.stack-group h3 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.stack-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stack-group li {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--pill-radius);
+  padding: 0.3rem 0.75rem;
+}

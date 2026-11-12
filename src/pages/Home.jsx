@@ -4,6 +4,7 @@ import Projects from '../components/Projects';
 import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
 import Process from '../components/Process';
+import TechStack from '../components/TechStack';
 import FAQ from '../components/FAQ';
 import CTA from '../components/CTA';
 import '../index.css';
@@ -14,12 +15,12 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Jubril Toheeb | AI Automation Specialist & GoHighLevel Developer</title>
-        <meta name="description" content="Jubril Toheeb builds AI automation and GoHighLevel systems for founders and small businesses: AI lead qualification, n8n and Make workflows, AI agents, and GHL CRM pipelines, so no lead goes cold." />
+        <title>Jubril Toheeb | No-Code Developer, AI Solutions & Automation Specialist</title>
+        <meta name="description" content="Jubril Toheeb builds web applications, SaaS platforms, AI-powered solutions and business automations with Bubble.io, Xano, Supabase, OpenAI, n8n, Make and GoHighLevel." />
         <link rel="canonical" href={`${BASE_URL}/`} />
         <meta property="og:url" content={`${BASE_URL}/`} />
-        <meta property="og:title" content="Jubril Toheeb | AI Automation Specialist & GoHighLevel Developer" />
-        <meta property="og:description" content="AI lead qualification, n8n and Make automations, AI agents, and GoHighLevel CRM builds for founders and small businesses. Book a free 30-minute automation audit." />
+        <meta property="og:title" content="Jubril Toheeb | No-Code Developer, AI Solutions & Automation Specialist" />
+        <meta property="og:description" content="Custom web apps, SaaS, AI-powered applications, GoHighLevel CRMs and business automation for startups and businesses. Book a free 30-minute discovery call." />
       </Helmet>
 
       <a href="#main-content" className="skip-nav-link">Skip to main content</a>
@@ -34,6 +35,7 @@ function Home() {
           </section>
 
           <Services />
+          <TechStack />
           <Testimonials />
           <Process />
           <FAQ />
