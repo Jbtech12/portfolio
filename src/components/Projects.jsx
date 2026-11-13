@@ -17,7 +17,7 @@ const projectData = [
   { id: 5, title: 'AI-Powered Hiring',    type: 'Recruiting Platform',     bg: `linear-gradient(160deg, rgba(15,23,42,0.28) 0%, rgba(15,23,42,0.78) 100%), url("${U('1694903089438-bf28d4697d9a')}") center/cover no-repeat`,     gridArea: 'p5' },
   { id: 6, title: 'Stripe Subscriptions', type: 'Billing System',          bg: `linear-gradient(160deg, rgba(15,23,42,0.20) 0%, rgba(15,23,42,0.72) 100%), url("${U('1563013544-824ae1b704d3')}") center/cover no-repeat`,        gridArea: 'p6' },
   { id: 7, title: 'Supermarket POS',      type: 'Point of Sale System',    bg: `linear-gradient(160deg, rgba(15,23,42,0.20) 0%, rgba(15,23,42,0.72) 100%), url("${U('1752057118708-cb96baf7ef45')}") center/cover no-repeat`,     gridArea: 'p7' },
-  { id: 11, title: 'FDARegistry Portal',  type: 'Compliance Management Platform', bg: 'linear-gradient(135deg, #0ea5e9 0%, #1e3a8a 100%)', gridArea: 'p11' },
+  { id: 11, title: 'FDARegistry Portal',  type: 'Compliance Management Platform', bg: `linear-gradient(160deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.82) 100%), url("/fda_1.webp") left top/cover no-repeat`, gridArea: 'p11' },
   { id: 12, title: 'GHL Property Automation', type: 'Property Management & Leasing', bg: 'linear-gradient(135deg, #10b981 0%, #065f46 100%)', gridArea: 'p12' },
   { id: 13, title: 'Afrowavs',            type: 'Digital Music Sample Platform', bg: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)', gridArea: 'p13' },
 ];

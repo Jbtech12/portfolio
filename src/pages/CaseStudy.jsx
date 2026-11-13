@@ -224,10 +224,10 @@ const projectData = {
       'Central document management for compliance files',
       'Role-based access control for teams',
       'Built-in subscription management',
+      'Annual, one-time and credit-based services, with billing history and downloadable invoices',
     ],
-    bgImage: '',
-    bgGradient: 'linear-gradient(135deg, #0ea5e9 0%, #1e3a8a 100%)',
-    gallery: [],
+    bgImage: '/fda_1.webp',
+    gallery: ['/fda_1.webp', '/fda_2.webp', '/fda_3.webp'],
     video: '',
   },
   12: {
