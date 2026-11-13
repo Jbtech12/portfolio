@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import './Hero.css';
 import jubrilImg from '../assets/jubril.jpeg';
@@ -6,7 +7,6 @@ import jubrilImg from '../assets/jubril.jpeg';
 const HeroOrb = lazy(() => import('./HeroOrb'));
 
 const Hero = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showSocials, setShowSocials] = useState(false);
   const [showOrb, setShowOrb] = useState(false);
 
@@ -16,6 +16,7 @@ const Hero = () => {
   const subtitleRef = useRef();
   const ctaRef     = useRef();
   const imageRef   = useRef();
+  const socialsRef = useRef();
 
   useEffect(() => {
     const heroEls = [
@@ -79,7 +80,19 @@ const Hero = () => {
     };
   }, []);
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  useEffect(() => {
+    if (!showSocials) return;
+    const onPointer = (e) => {
+      if (!socialsRef.current?.contains(e.target)) setShowSocials(false);
+    };
+    const onKey = (e) => e.key === 'Escape' && setShowSocials(false);
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [showSocials]);
 
   return (
     <>
@@ -113,9 +126,9 @@ const Hero = () => {
                 {' '}<strong>AI</strong> and <strong>automation</strong>, backed by 3+ years of Bubble.io
                 development, backend systems and API integrations.
               </p>
-              <button className="read-more-btn mt-1" onClick={toggleModal} aria-label="Read more about what I do">
-                Read More <span aria-hidden="true">+</span>
-              </button>
+              <Link to="/about" className="read-more-btn mt-1">
+                More about me <span aria-hidden="true">→</span>
+              </Link>
             </div>
 
             <div className="hero-cta-group" style={{ position: 'relative' }} ref={ctaRef}>
@@ -123,9 +136,12 @@ const Hero = () => {
                 Book a free call
                 <span className="btn-icon">→</span>
               </a>
+              <div className="social-trigger" ref={socialsRef}>
               <button
                 className="btn btn-secondary"
                 onClick={() => setShowSocials(!showSocials)}
+                aria-expanded={showSocials}
+                aria-haspopup="true"
               >
                 Send me a message
                 <span className="btn-icon">→</span>
@@ -153,6 +169,7 @@ const Hero = () => {
                   </a>
                 </div>
               )}
+              </div>
             </div>
 
           </div>
@@ -170,59 +187,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <div
-        className={`about-modal-overlay ${isModalOpen ? 'active' : ''}`}
-        onClick={toggleModal}
-        aria-hidden={!isModalOpen}
-      >
-        <div
-          className="about-modal-content"
-          onClick={(e) => e.stopPropagation()}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-        >
-          <button className="close-modal-btn" onClick={toggleModal} aria-label="Close about modal">&times;</button>
-
-          <h2 className="modal-title" id="modal-title">About me</h2>
-
-          <div className="modal-moved-content">
-            <p className="mt-1">
-              I'm Jubril Toheeb, a No-Code Developer and Automation Specialist with a background in Computer Science.
-              I build custom web applications, SaaS platforms, AI-powered solutions and automated business systems.
-            </p>
-            <p className="mt-1">
-              My work goes beyond visual app building. I handle backend technologies, database architecture,
-              API integrations, payments, authentication and workflow automation to deliver complete digital products.
-            </p>
-            <p className="mt-1"><strong>Why work with me:</strong></p>
-          </div>
-
-          <ul className="hero-check-list modal-check-list mt-1">
-            <li>✅ Business-focused problem solving</li>
-            <li>✅ End-to-end application development</li>
-            <li>✅ Strong Bubble.io development experience</li>
-            <li>✅ Practical AI and automation integrations</li>
-            <li>✅ Backend and API integration expertise</li>
-            <li>✅ Scalable database and application architecture</li>
-            <li>✅ Commitment to quality and functionality</li>
-          </ul>
-
-          <p className="mt-1">
-            My approach is simple: understand the problem, design the right solution and build technology that delivers real value.
-          </p>
-          <div className="modal-highlight-box mt-1">
-            <p className="highlight-text">
-              Have an idea for a SaaS product, need a custom web app, or want to automate repetitive operations? Let's talk.
-            </p>
-            <p className="mt-1">📅 Book a free 30-minute discovery call.</p>
-          </div>
-
-          <a href="#contact" className="btn btn-primary mt-2" onClick={toggleModal} style={{ width: '100%', justifyContent: 'center' }}>
-            Let's Talk
-          </a>
-        </div>
-      </div>
     </>
   );
 };

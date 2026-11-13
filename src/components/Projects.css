@@ -1,148 +1,234 @@
+/* ── Featured Work ─────────────────────────────────────────────
+   Every card shows the real product: a short pitch on top and a
+   large, un-dimmed screenshot underneath, so visitors can tell
+   what each project is at a glance. */
+
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 250px;
-    gap: 1.5rem;
-    grid-template-areas:
-        "p8 p8"
-        "p10 p10"
-        "p12 p12"
-        "p9 p1"
-        "p9 p3"
-        "p11 p5"
-        "p2 p4"
-        "p6 p7";
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem 2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    color: var(--text-main);
+    text-decoration: none;
+    min-width: 0;
+}
+
+.project-card.is-featured {
+    grid-column: 1 / -1;
+}
+
+/* Text */
+.pc-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.75rem;
+    margin-bottom: 0.45rem;
+}
+
+.pc-heading h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.is-featured .pc-heading h3 {
+    font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+}
+
+.pc-type {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+}
+
+.pc-blurb {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 62ch;
+}
+
+.pc-blurb strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Media panel */
+.pc-media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    aspect-ratio: 16 / 9;
+    background:
+        radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--tint) 22%, transparent) 0%, transparent 70%),
+        color-mix(in srgb, var(--tint) 9%, var(--card-bg));
+    border: 1px solid var(--border-color);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.project-card:hover .pc-media,
+.project-card:focus-visible .pc-media {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px -20px color-mix(in srgb, var(--tint) 45%, rgba(0, 0, 0, 0.35));
+}
+
+.project-card:focus-visible {
+    outline: none;
+}
+
+.project-card:focus-visible .pc-media {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 4px;
+}
+
+/* Wide screenshot: the whole screen, framed and centred on the panel */
+.pc-media-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5.5%;
+}
+
+.pc-screen {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(15, 23, 42, 0.06);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.is-featured .pc-media-screen {
+    padding: 4%;
+}
+
+.project-card:hover .pc-screen {
+    transform: scale(1.02);
+}
+
+/* Composed mockup: fills the panel */
+.pc-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .pc-cover {
+    transform: scale(1.04);
+}
+
+/* Mobile app: phones side by side */
+.pc-phones {
+    position: absolute;
+    inset: 8% 6% 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4%;
+}
+
+.pc-phones img {
+    width: 22%;
+    height: auto;
+    border-radius: 22px;
+    box-shadow: 0 20px 40px -14px rgba(15, 23, 42, 0.4), 0 0 0 1px rgba(15, 23, 42, 0.08);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pc-phones img:nth-child(2) {
+    margin-top: 4%;
+}
+
+.project-card:hover .pc-phones img {
+    transform: translateY(-6px);
+}
+
+/* Footer: tags + link */
+.pc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+.pc-tags li {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--pill-radius);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+.pc-link {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.pc-link span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .pc-link span {
+    transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
-        grid-auto-rows: 300px;
-        grid-template-areas:
-            "p8"
-            "p10"
-            "p12"
-            "p9"
-            "p1"
-            "p3"
-            "p11"
-            "p5"
-            "p2"
-            "p4"
-            "p6"
-            "p7";
+        gap: 3rem;
     }
+
+    .pc-media {
+        aspect-ratio: 16 / 10;
+    }
+
+    .pc-media-screen {
+        padding: 4.5%;
+    }
+
+    .pc-media-phones {
+        aspect-ratio: 1 / 1;
+    }
+
+    .pc-phones img {
+        width: 29%;
+        border-radius: 14px;
+    }
+
 }
 
-.project-card {
-    border-radius: var(--card-radius);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-    color: white;
-    /* Text color for dark cards */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.project-card:hover {
-    transform: translateY(-5px) scale(0.98);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-}
-
-.p1 {
-    grid-area: p1;
-}
-
-.p2 {
-    grid-area: p2;
-    min-height: 250px;
-}
-
-.p3 {
-    grid-area: p3;
-    height: 100%;
-}
-
-.p4 {
-    grid-area: p4;
-    min-height: 250px;
-}
-
-.p5 {
-    grid-area: p5;
-}
-
-.p6 {
-    grid-area: p6;
-}
-
-.p7 {
-    grid-area: p7;
-}
-
-.p8 {
-    grid-area: p8;
-}
-
-.p9 { grid-area: p9; }
-.p10 { grid-area: p10; }
-.p11 { grid-area: p11; }
-.p12 { grid-area: p12; }
-
-
-.project-content {
-    text-align: center;
-    z-index: 2;
-    transition: opacity 0.3s ease;
-}
-
-.project-content h3 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.03em;
-    font-weight: 700;
-}
-
-.project-content p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 500;
-}
-
-.project-hover-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 3;
-}
-
-.project-hover-overlay span {
-    background: white;
-    color: black;
-    padding: 0.8rem 1.8rem;
-    border-radius: var(--pill-radius);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transform: translateY(15px);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.project-card:hover .project-hover-overlay {
-    opacity: 1;
-}
-
-.project-card:hover .project-hover-overlay span {
-    transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+    .pc-media,
+    .pc-screen,
+    .pc-cover,
+    .pc-phones img,
+    .pc-link span {
+        transition: none;
+    }
 }

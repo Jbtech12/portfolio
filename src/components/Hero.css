@@ -146,8 +146,9 @@
     font-size: 1.15rem;
 }
 
-/* Read More Button */
+/* "More about me" link */
 .read-more-btn {
+    text-decoration: none;
     background: transparent;
     border: none;
     color: var(--accent-blue);
@@ -183,93 +184,6 @@
     background-color: var(--accent-blue);
     color: white;
     transform: rotate(90deg);
-}
-
-/* Stylish Modal Popup Styles */
-.about-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.about-modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.about-modal-content {
-    background-color: white;
-    width: 90%;
-    max-width: 650px;
-    padding: 3rem;
-    border-radius: var(--card-radius);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    position: relative;
-    transform: translateY(40px) scale(0.95);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0.1s;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.about-modal-overlay.active .about-modal-content {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-
-.close-modal-btn {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: #f4f5f6;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--text-muted);
-    transition: all 0.2s ease;
-}
-
-.close-modal-btn:hover {
-    background: #e0e0e0;
-    color: #111;
-    transform: rotate(90deg);
-}
-
-.modal-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.03em;
-    padding-right: 2rem;
-}
-
-.modal-check-list {
-    margin: 2rem 0;
-}
-
-.modal-highlight-box {
-    background-color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 16px;
-    border-left: 4px solid var(--accent-blue);
-    margin-top: 2rem;
 }
 
 .mt-2 { margin-top: 2rem; }
@@ -511,4 +425,9 @@
 
 .social-link:hover svg {
     transform: scale(1.2) rotate(-8deg);
+}
+/* Anchors the "Send me a message" menu under its own button */
+.social-trigger {
+    position: relative;
+    display: inline-flex;
 }
