@@ -102,15 +102,16 @@ const Hero = () => {
             </div>
 
             <h1 ref={h1Ref}>
-              Still chasing leads by hand?<br />
-              Let AI <span className="text-muted">do the work.</span>
+              I build web apps, AI solutions<br />
+              <span className="text-muted">&amp; business automations.</span>
             </h1>
 
             <div className="hero-about-text" ref={subtitleRef}>
               <p>
-                I help founders and small businesses automate lead follow-up, sales pipelines and
-                busywork with <strong>AI</strong>, <strong>n8n</strong> and <strong>GoHighLevel</strong>,
-                so no lead goes cold and your team gets hours back every week.
+                No-Code Developer, AI Solutions Developer and Automation Specialist. I help startups,
+                entrepreneurs and businesses turn ideas into working products with <strong>Bubble.io</strong>,
+                {' '}<strong>AI</strong> and <strong>automation</strong>, backed by 3+ years of Bubble.io
+                development, backend systems and API integrations.
               </p>
               <button className="read-more-btn mt-1" onClick={toggleModal} aria-label="Read more about what I do">
                 Read More <span aria-hidden="true">+</span>
@@ -119,7 +120,7 @@ const Hero = () => {
 
             <div className="hero-cta-group" style={{ position: 'relative' }} ref={ctaRef}>
               <a href="https://cal.com/jubril-toheeb-rgh9vp/30min" className="btn btn-primary" target="_blank" rel="noreferrer">
-                Book a free audit
+                Book a free call
                 <span className="btn-icon">→</span>
               </a>
               <button
@@ -164,7 +165,7 @@ const Hero = () => {
                 </Suspense>
               )}
             </div>
-            <img src={jubrilImg} alt="Jubril Toheeb Temidayo — AI Automation Specialist and GoHighLevel Developer" className="hero-portrait" width="480" height="560" />
+            <img src={jubrilImg} alt="Jubril Toheeb Temidayo — No-Code Developer, AI Solutions Developer and Automation Specialist" className="hero-portrait" width="480" height="560" />
           </div>
         </div>
       </div>
@@ -183,39 +184,38 @@ const Hero = () => {
         >
           <button className="close-modal-btn" onClick={toggleModal} aria-label="Close about modal">&times;</button>
 
-          <h2 className="modal-title" id="modal-title">What I bring to the table</h2>
+          <h2 className="modal-title" id="modal-title">About me</h2>
 
           <div className="modal-moved-content">
-            <p className="mt-1">Most founders struggle with:</p>
-            <ul className="hero-bullet-list" style={{ color: 'var(--text-main)', paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
-              <li>Leads going cold before anyone replies</li>
-              <li>Hours lost copying data between tools</li>
-              <li>A CRM the team doesn't trust</li>
-              <li>Follow-ups that depend on someone remembering</li>
-            </ul>
-            <p className="mt-1"><strong>That's where I come in.</strong></p>
-            <p>I build automations that run the busywork for you:</p>
+            <p className="mt-1">
+              I'm Jubril Toheeb, a No-Code Developer and Automation Specialist with a background in Computer Science.
+              I build custom web applications, SaaS platforms, AI-powered solutions and automated business systems.
+            </p>
+            <p className="mt-1">
+              My work goes beyond visual app building. I handle backend technologies, database architecture,
+              API integrations, payments, authentication and workflow automation to deliver complete digital products.
+            </p>
+            <p className="mt-1"><strong>Why work with me:</strong></p>
           </div>
 
           <ul className="hero-check-list modal-check-list mt-1">
-            <li>✅ AI lead qualification & AI agents</li>
-            <li>✅ GoHighLevel CRM, pipelines & funnels</li>
-            <li>✅ n8n, Zapier & Make automation systems</li>
-            <li>✅ OpenAI & Claude integrations</li>
-            <li>✅ Stripe payments, subscriptions & invoicing</li>
-            <li>✅ Third-party API integrations</li>
-            <li>✅ Error alerts, so nothing fails silently</li>
-            <li>✅ Web apps & MVPs in Bubble</li>
+            <li>✅ Business-focused problem solving</li>
+            <li>✅ End-to-end application development</li>
+            <li>✅ Strong Bubble.io development experience</li>
+            <li>✅ Practical AI and automation integrations</li>
+            <li>✅ Backend and API integration expertise</li>
+            <li>✅ Scalable database and application architecture</li>
+            <li>✅ Commitment to quality and functionality</li>
           </ul>
 
           <p className="mt-1">
-            I don't just connect tools. I design automations that keep working as your business grows.
+            My approach is simple: understand the problem, design the right solution and build technology that delivers real value.
           </p>
           <div className="modal-highlight-box mt-1">
             <p className="highlight-text">
-              If you're looking for a technical partner who understands both product thinking and execution, let's talk.
+              Have an idea for a SaaS product, need a custom web app, or want to automate repetitive operations? Let's talk.
             </p>
-            <p className="mt-1">📅 Book a free 30-minute audit and I'll show you what to automate first.</p>
+            <p className="mt-1">📅 Book a free 30-minute discovery call.</p>
           </div>
 
           <a href="#contact" className="btn btn-primary mt-2" onClick={toggleModal} style={{ width: '100%', justifyContent: 'center' }}>

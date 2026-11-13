@@ -38,20 +38,6 @@ const XanoIcon = () => (
   </svg>
 );
 
-const ZapierIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-    {/* Bold lightning bolt */}
-    <path d="M21 3L9 21h11l-5 12L29 15H18l3-12z" fill="white" fillOpacity="0.95"/>
-    {/* Glow highlight on bolt */}
-    <path d="M20 5L10 21h9l-4 9L27 16H18l2-11z" fill="white" fillOpacity="0.2"/>
-    {/* Small trailing sparks */}
-    <circle cx="5"  cy="13" r="2"   fill="white" fillOpacity="0.45"/>
-    <circle cx="31" cy="23" r="2"   fill="white" fillOpacity="0.45"/>
-    <circle cx="4"  cy="22" r="1.2" fill="white" fillOpacity="0.25"/>
-    <circle cx="32" cy="14" r="1.2" fill="white" fillOpacity="0.25"/>
-  </svg>
-);
-
 /* Real n8n logo — Simple Icons (viewBox 0 0 24 24) */
 const N8nIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
@@ -77,23 +63,6 @@ const AIIcon = () => (
     <path d="M28 4l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="white" fillOpacity="0.85"/>
     {/* Tiny sparkle */}
     <path d="M5 7l0.6 1.8L7.4 9l-1.8 0.6L5 11.4 4.4 9.6 2.6 9l1.8-.6z" fill="white" fillOpacity="0.45"/>
-  </svg>
-);
-
-const OrbitIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-    {/* Planet */}
-    <circle cx="18" cy="20" r="7" fill="white" fillOpacity="0.92"/>
-    {/* Shine on planet */}
-    <circle cx="15.5" cy="17" r="2.2" fill="white" fillOpacity="0.55"/>
-    <circle cx="14.5" cy="16" r="1" fill="white"/>
-    {/* Orbital ring */}
-    <ellipse cx="18" cy="20" rx="15" ry="6" stroke="white" strokeOpacity="0.5" strokeWidth="1.8" fill="none"/>
-    {/* Satellite on orbit */}
-    <circle cx="3.5" cy="20" r="2.5" fill="white" fillOpacity="0.8"/>
-    {/* Upward escape vector */}
-    <line x1="18" y1="13" x2="18" y2="5" stroke="white" strokeOpacity="0.45" strokeWidth="1.8" strokeLinecap="round"/>
-    <path d="M14.5 7.5L18 4L21.5 7.5" stroke="white" strokeOpacity="0.45" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
   </svg>
 );
 
@@ -148,84 +117,70 @@ const GoHighLevelIcon = () => (
 
 const servicesData = [
   {
-    id: 'n8n',
-    title: 'n8n',
-    desc: 'Advanced self-hosted workflow automation — custom data pipelines, API routing, and complex multi-step logic.',
-    Icon: N8nIcon,
-    logoUrl: '/logos/n8n.svg',
-    bg: 'linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)',
-    glow: 'rgba(14,165,233,0.35)',
-  },
-  {
-    id: 'claude',
-    title: 'AI Integration',
-    desc: 'OpenAI, Claude, and LLM integrations — AI chat, content generation, resume analysis, and intelligent automation.',
-    Icon: AIIcon,
-    logoUrl: '/logos/claude.svg',
-    bg: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
-    glow: 'rgba(139,92,246,0.35)',
-  },
-  {
-    id: 'gohighlevel',
-    title: 'GoHighLevel',
-    desc: 'All-in-one CRM automation — pipelines, campaigns, sub-accounts, and sales funnels configured for your business.',
-    Icon: GoHighLevelIcon,
-    logoUrl: '/logos/gohighlevel.png',
-    bg: 'linear-gradient(135deg, #f97316 0%, #dc2626 100%)',
-    glow: 'rgba(249,115,22,0.38)',
-  },
-  {
-    id: 'make',
-    title: 'Make.com',
-    desc: 'Visual workflow automation for complex, multi-step business processes — from lead capture to CRM sync and beyond.',
-    Icon: MobileIcon,
-    logoUrl: '/logos/make.svg',
-    bg: 'linear-gradient(135deg, #6D00CC 0%, #E90CF9 100%)',
-    glow: 'rgba(109,0,204,0.38)',
-  },
-  {
-    id: 'zapier',
-    title: 'Zapier',
-    desc: 'Business process automation connecting thousands of apps — eliminate manual work, save hours every week.',
-    Icon: ZapierIcon,
-    logoUrl: '/logos/zapier.svg',
-    bg: 'linear-gradient(135deg, #ff6b35 0%, #f7c59f 100%)',
-    glow: 'rgba(255,107,53,0.35)',
-  },
-  {
-    id: 'stripe',
-    title: 'Stripe',
-    desc: 'End-to-end payment integration — subscriptions, one-time billing, invoice retrieval, and plan management inside your app or CRM.',
-    Icon: StripeIcon,
-    logoUrl: '/logos/stripe.svg',
-    bg: 'linear-gradient(135deg, #635bff 0%, #0a2540 100%)',
-    glow: 'rgba(99,91,255,0.40)',
-  },
-  {
-    id: 'bubble',
-    title: 'Bubble.io',
-    desc: 'Full-stack SaaS MVPs and web applications — built fast, designed to scale, no code required.',
+    id: 'saas',
+    title: 'No-Code & SaaS Development',
+    desc: 'Custom web apps, SaaS platforms, marketplaces, booking systems, admin dashboards, job boards and MVPs, built responsive and ready to scale.',
+    tech: 'Bubble.io, Xano, Supabase',
     Icon: BubbleIcon,
     logoUrl: '/logos/bubble.svg',
     bg: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
     glow: 'rgba(79,70,229,0.35)',
   },
   {
-    id: 'xano',
-    title: 'Xano',
-    desc: 'Robust, secure, and scalable no-code backend architecture — RESTful APIs built without a line of server code.',
+    id: 'ai',
+    title: 'AI-Powered Applications',
+    desc: 'AI chatbots, AI-powered SaaS, resume and document analysis, content generation, recruitment and coaching tools, and voice AI assistants.',
+    tech: 'OpenAI API, Claude API, Vapi AI, ElevenLabs, LangChain',
+    Icon: AIIcon,
+    bg: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
+    glow: 'rgba(139,92,246,0.35)',
+  },
+  {
+    id: 'automation',
+    title: 'Business Process Automation',
+    desc: 'Workflow and CRM automation, lead nurturing, onboarding, scheduling and follow-ups, app-to-app integrations and automated data sync.',
+    tech: 'n8n, Make.com, Zapier, GoHighLevel, Brevo',
+    Icon: N8nIcon,
+    logoUrl: '/logos/n8n.svg',
+    bg: 'linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)',
+    glow: 'rgba(14,165,233,0.35)',
+  },
+  {
+    id: 'gohighlevel',
+    title: 'GoHighLevel & CRM Solutions',
+    desc: 'Account setup, pipelines, custom fields, workflows and triggers, email and SMS automation, booking flows, AI voice agents and multi-tenant CRMs.',
+    tech: 'GoHighLevel, Make.com, n8n, Vapi AI',
+    Icon: GoHighLevelIcon,
+    logoUrl: '/logos/gohighlevel.png',
+    bg: 'linear-gradient(135deg, #f97316 0%, #dc2626 100%)',
+    glow: 'rgba(249,115,22,0.38)',
+  },
+  {
+    id: 'backend',
+    title: 'Backend & API Integrations',
+    desc: 'REST API integrations, custom endpoints, backend workflows, database architecture, authentication, webhooks and data sync between platforms.',
+    tech: 'Xano, Supabase, PostgreSQL, Postman, Bubble API Connector',
     Icon: XanoIcon,
     logoUrl: '/logos/xano.svg',
     bg: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
     glow: 'rgba(245,158,11,0.35)',
   },
   {
-    id: 'antigravity',
-    title: 'Anti Gravity',
-    desc: 'Specialised no-code development agency delivering high-performance digital products and immersive experiences.',
-    Icon: OrbitIcon,
-    logoUrl: '/logos/antigravity.png',
-    logoSquare: true,
+    id: 'stripe',
+    title: 'Payments & Subscriptions',
+    desc: 'Stripe Checkout and Connect, subscriptions and recurring billing, payment webhooks, invoices and the full customer subscription lifecycle.',
+    tech: 'Stripe, Bubble.io, Xano, REST APIs',
+    Icon: StripeIcon,
+    logoUrl: '/logos/stripe.svg',
+    bg: 'linear-gradient(135deg, #635bff 0%, #0a2540 100%)',
+    glow: 'rgba(99,91,255,0.40)',
+  },
+  {
+    id: 'design',
+    title: 'UI/UX & Product Development',
+    desc: 'Web app and dashboard interfaces, wireframes and prototypes, user journeys, feature planning and MVP interfaces.',
+    tech: 'Figma, Bubble.io, Webflow, Framer',
+    Icon: MobileIcon,
     bg: 'linear-gradient(135deg, #10b981 0%, #34d399 100%)',
     glow: 'rgba(16,185,129,0.35)',
   },
@@ -277,15 +232,15 @@ const Services = () => {
       <div className="services-header">
         <div className="pill-badge pill-dark">// SERVICES //</div>
         <div className="services-title-row">
-          <h2>My Arsenal</h2>
+          <h2>What I Do</h2>
           <p className="services-desc">
-            I build AI-powered automation on strategy — from n8n and Make workflows and AI agents to GoHighLevel CRM systems, plus Bubble.io web apps when you need one.
+            From SaaS products and AI-powered apps to backend systems and business automation, I deliver practical technology that helps businesses run efficiently and scale.
           </p>
         </div>
       </div>
 
       <div className="services-grid">
-        {servicesData.map(({ id, title, desc, Icon, bg, glow, logoUrl, logoSquare }) => (
+        {servicesData.map(({ id, title, desc, tech, Icon, bg, glow, logoUrl, logoSquare }) => (
           <div
             className="service-card"
             key={id}
@@ -317,6 +272,7 @@ const Services = () => {
 
             <h3>{title}</h3>
             <p>{desc}</p>
+            {tech && <p className="service-tech"><strong>Tools:</strong> {tech}</p>}
           </div>
         ))}
       </div>

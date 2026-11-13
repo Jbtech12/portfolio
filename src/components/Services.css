@@ -239,3 +239,10 @@
   line-height: 1.65;
   font-size: 1.02rem;
 }
+
+.service-card p.service-tech {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  opacity: 0.85;
+}

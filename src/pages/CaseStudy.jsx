@@ -92,7 +92,7 @@ const projectData = {
     type: 'Recruiting Platform',
     role: 'Nocode Developer',
     timeline: 'Completed',
-    techStack: 'Bubble, OpenAI, Jobsearch API',
+    techStack: 'Bubble.io, OpenAI API, JSearch API',
     overview: 'A modern, AI-enhanced job platform designed to streamline the entire recruitment lifecycle.',
     challenge: 'The hiring process is time-consuming, inefficient, and fragmented across multiple tools. Recruiters struggle with writing job descriptions, screening candidates, and managing applicants, while job seekers lack personalized feedback. There was a need for a unified, intelligent platform that simplifies hiring while enhancing decision-making with AI.',
     solution: 'I built a modern AI-enhanced job platform using Bubble, designed to streamline the entire recruitment lifecycle. The platform leverages AI to generate job descriptions, analyze resumes, and provide actionable feedback. Key features include automated candidate shortlisting, interview scheduling, recruiter dashboards, and a full applicant tracking system.',
@@ -165,6 +165,91 @@ const projectData = {
     bgImage: '/automation_guardian_1.png',
     gallery: ['/automation_guardian_2.png', '/automation_guardian_3.png', '/automation_guardian_4.png'],
     video: '/automation_guardian.mp4',
+  },
+  9: {
+    title: 'DailyWins',
+    type: 'Mobile Habit Tracker App',
+    role: 'Full-stack Mobile Developer',
+    timeline: 'Completed',
+    techStack: 'Expo, React Native, TypeScript, Convex, Clerk, NativeWind, Expo Notifications',
+    overview: 'A mobile habit tracker that lets people create habits, tick them off each day and keep their streak going.',
+    challenge: 'Most habit apps are either too bare to stay motivating or so cluttered that logging a habit becomes a chore. The goal was a fast, focused mobile app where checking off today\'s habits takes a single tap, progress is visible at a glance, and streaks are counted honestly, with user accounts and data synced in real time across devices.',
+    solution: 'I built DailyWins as a native mobile app with Expo Router and TypeScript, using Convex as a real-time backend and Clerk for sign-in. The Today screen shows a daily progress ring and a one-tap checklist; the Habits tab handles creating and scheduling habits with validated forms (React Hook Form and Zod); and the Statistics tab shows the current and longest streak, total completions, completion rate and a last-7-days chart. A "perfect day" only counts when every habit scheduled that day is done, so the numbers stay honest. Reminders use Expo Notifications, and the UI supports light and dark mode.',
+    results: [
+      'Shipped a complete iOS and Android habit tracker from a single TypeScript codebase',
+      'One-tap daily check-ins with a live progress ring and per-habit streaks',
+      'Honest statistics: streaks, completion rate and a 7-day chart based on scheduled habits',
+      'Real-time sync and secure sign-in with Convex and Clerk',
+      'Light and dark mode, with habit reminders through push notifications',
+    ],
+    bgImage: '/dailywins_1.png',
+    gallery: ['/dailywins_1.png', '/dailywins_2.png', '/dailywins_3.png', '/dailywins_4.png'],
+    galleryPhone: true,
+    video: '',
+  },
+  10: {
+    title: 'Insurance CRM Rebuild',
+    type: 'GoHighLevel CRM & Partner Payouts',
+    role: 'GoHighLevel Developer & Automation Engineer',
+    timeline: 'Delivered, ongoing improvements',
+    techStack: 'GoHighLevel, Custom JavaScript, Vercel, HighLevel Marketplace App, REST APIs',
+    overview: 'A rebuild of an insurance advisory firm\'s CRM in GoHighLevel, with three pipelines, safe stage changes, bilingual client emails and referral partner payouts that no longer depend on a spreadsheet.',
+    challenge: 'The firm ran its sales and referral partner commissions across a CRM and an Excel sheet. Cards could be moved by mistake, key data was missing at important stages, several live workflows had silent defects (cards bouncing back, sales dropped as duplicates, emails sent twice), and partner payouts were calculated by hand. The rebuild had to follow the client\'s PRD without premium workflow actions such as Custom Code.',
+    solution: 'I rebuilt the CRM around three pipelines: Lead Qualification, Insurance Sales and Referral Payments. A custom stage gate asks for confirmation before any stage move and opens data-entry popups at key stages, saving fail-closed with read-back checks. A small backend on Vercel, plus a private Marketplace app for workflow events, recalculates each referral partner\'s Pending, Due and Paid totals from the live cards within seconds, including a tiered commission formula for one partner group. When a card is moved to Paid, a checklist lets the assistant pay out the partner\'s other due cards in one step. I audited the live workflows read-only, rebuilt corrected versions as drafts for review without touching the originals, and built 96 French and English email templates plus SMS snippets from the firm\'s existing design.',
+    results: [
+      'Three pipelines rebuilt in GoHighLevel from the client\'s PRD',
+      'Confirmation and data-entry popups prevent accidental or incomplete stage moves',
+      'Partner Pending, Due and Paid totals update automatically within seconds, replacing the Excel sheet',
+      'Audit found and fixed real workflow defects, with originals left untouched for safe review',
+      '96 bilingual (French and English) email templates and 10 SMS snippets',
+      'Verified live: a test card moved Pending to Due to Paid with partner totals following each step',
+    ],
+    bgImage: '',
+    bgGradient: 'linear-gradient(135deg, #f97316 0%, #b91c1c 100%)',
+    gallery: [],
+    video: '',
+  },
+  11: {
+    title: 'FDARegistry Portal',
+    type: 'Compliance Management Platform',
+    role: 'No-Code Developer',
+    timeline: 'Completed',
+    techStack: 'Bubble.io, Xano, API Integrations',
+    overview: 'A multi-tenant compliance platform that helps organizations manage company information, facilities, services and compliance documents.',
+    challenge: 'Organizations dealing with FDA registration juggle company records, multiple facilities, services and compliance documents across scattered files and emails. They needed one secure portal where each organization sees only its own data, teams have the right level of access, and subscriptions are managed in the same place.',
+    solution: 'I built a multi-tenant platform on Bubble.io with Xano as the backend. Each organization manages its company profile, facilities and services, uploads and organizes compliance documents, and controls who can do what through role-based access. Subscription management and API integrations are built in, so the platform can grow with new tenants and services.',
+    results: [
+      'Multi-tenant architecture keeps each organization\'s data separate',
+      'Company, facility and service management in one portal',
+      'Central document management for compliance files',
+      'Role-based access control for teams',
+      'Built-in subscription management',
+      'Annual, one-time and credit-based services, with billing history and downloadable invoices',
+    ],
+    bgImage: '/fda_1.webp',
+    gallery: ['/fda_1.webp', '/fda_2.webp', '/fda_3.webp'],
+    video: '',
+  },
+  12: {
+    title: 'ZeroHold Cross-Docking',
+    type: 'Logistics, Warehouse & Payment Automation',
+    role: 'No-Code Developer & Automation Engineer',
+    timeline: 'Phase 1 completed, moving to production',
+    techStack: 'Bubble.io, Jotform, n8n, Airtable, Stripe, Google Places API, Vapi AI',
+    overview: 'A logistics and warehouse platform that connects public freight booking, internal warehouse operations, dynamic charge calculations and automated payment collection in one system.',
+    challenge: 'A cross-docking warehouse was handling freight bookings, payment holds, extra floor charges and final billing largely by hand. Brokers needed a simple way to book and authorize payment up front, warehouse managers needed to verify freight and add charges on the floor, and the final bill had to be collected automatically based on the services actually delivered, even when it came to more than the original card authorization.',
+    solution: 'I designed a five-system architecture. Brokers book through a public Jotform with conditional fields for freight category, service tier, carriers, appointment, pallet count, stops and MSA acceptance, then authorize their card. n8n processes each booking: it identifies the broker company, generates a Master Booking Token, looks up pricing, creates the Airtable records and places a Stripe authorization hold. On the warehouse floor, managers sign in to a secure Bubble app, pull up the booking by its token, verify the freight, add quantity-based accessorial charges and capture driver and manager signatures. Bubble calculates the final bill and sends it to n8n, which captures the exact amount within the authorization ceiling and charges any overage separately to the saved payment method. I kept the booking amount, authorization ceiling and actual final charge as separate fields, so every outcome is recorded accurately. Failed charges log the outstanding balance and reason, keep the booking open, and feed a retry and recovery workflow. Alongside the core system, I built two n8n outreach workflows: one finds operational businesses with no website through the Google Places API and logs them to Google Sheets, and the other places scheduled AI voice calls to uncontacted leads through Vapi and records each call\'s outcome.',
+    results: [
+      'Integrated Bubble, Jotform, n8n, Airtable and Stripe into one booking-to-payment flow',
+      'Brokers book and authorize payment up front through a single public form',
+      'Secure warehouse manager app for booking lookup, extra charges and signatures',
+      'Final bills captured automatically, with overages charged separately beyond the authorization',
+      'Duplicate payment prevention plus failed-payment retry and recovery',
+      'Bubble app transferred to the client, with client admin control over warehouse users',
+    ],
+    bgImage: '/zerohold_4.webp',
+    gallery: ['/zerohold_1.webp', '/zerohold_2.webp', '/zerohold_3.webp', '/zerohold_4.webp', '/zerohold_5.webp', '/zerohold_6.webp'],
+    video: '',
   },
 };
 
@@ -292,7 +377,7 @@ const CaseStudy = () => {
   const techPills = project.techStack.split(',').map(t => t.trim());
 
   const pageTitle = `${project.title} — ${project.type} | Jubril Toheeb`;
-  const pageDesc = `${project.overview} Built with ${project.techStack} by Jubril Toheeb, a Bubble.io developer and no-code automation expert.`;
+  const pageDesc = `${project.overview} Built with ${project.techStack} by Jubril Toheeb, a no-code developer, AI solutions developer and automation specialist.`;
   const canonicalUrl = `${BASE_URL}/case-study/${id}`;
 
   return (
@@ -306,7 +391,7 @@ const CaseStudy = () => {
         <meta property="og:description" content={pageDesc} />
         <meta property="og:url" content={canonicalUrl} />
         {project.bgImage && (
-          <meta property="og:image" content={`${BASE_URL}${project.bgImage}`} />
+          <meta property="og:image" content={`${BASE_URL}${encodeURI(project.bgImage)}`} />
         )}
       </Helmet>
 
@@ -373,7 +458,10 @@ const CaseStudy = () => {
           <div
             className="cs-hero-img"
             ref={bannerRef}
-            style={{ backgroundImage: `url("${project.bgImage}")` }}
+            style={{
+              backgroundImage: project.bgImage ? `url("${project.bgImage}")` : project.bgGradient,
+              ...(project.galleryPhone && { backgroundPosition: 'center top' }),
+            }}
           />
           <div className="cs-hero-overlay">
             <div className="cs-hero-stats">
@@ -391,10 +479,11 @@ const CaseStudy = () => {
         </div>
 
         {/* Gallery */}
+        {project.gallery.length > 0 && (
         <section className="cs-gallery-section" ref={galleryRef}>
           <div className="cs-section-eyebrow">// GALLERY</div>
           <h3 className="cs-section-heading">Project Screenshots</h3>
-          <div className={`cs-gallery-grid cs-gallery-${project.gallery.length}`}>
+          <div className={`cs-gallery-grid ${project.galleryPhone ? 'cs-gallery-phone' : `cs-gallery-${project.gallery.length}`}`}>
             {project.gallery.map((src, i) => (
               <div
                 key={i}
@@ -416,6 +505,7 @@ const CaseStudy = () => {
             ))}
           </div>
         </section>
+        )}
 
         {/* Video */}
         {project.video && (

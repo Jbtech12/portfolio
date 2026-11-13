@@ -46,7 +46,7 @@ const AIChatBot = () => {
 
     try {
       const apiMessages = [
-        { role: 'system', content: "You are representing Jubril Toheeb Temidayo, an AI Automation Specialist and GoHighLevel developer who also builds web apps. A potential client just submitted a project brief. Acknowledge their brief professionally, express excitement about their idea/budget, and mention that Jubril will be the one to personally discuss this further. Keep it concise (2-3 sentences max). Don't ask followup questions." },
+        { role: 'system', content: "You are representing Jubril Toheeb Temidayo, a No-Code Developer, AI Solutions Developer and Automation Specialist who builds web applications, SaaS platforms, AI-powered solutions and business automations. A potential client just submitted a project brief. Acknowledge their brief professionally, express excitement about their idea/budget, and mention that Jubril will be the one to personally discuss this further. Keep it concise (2-3 sentences max). Don't ask followup questions." },
         { role: 'user', content: initialContext }
       ];
 
@@ -82,7 +82,7 @@ const AIChatBot = () => {
 
     try {
       const apiMessages = [
-        { role: 'system', content: "You are an AI assistant for Jubril, an AI Automation Specialist and GoHighLevel developer. He builds AI lead qualification, n8n and Make automations, AI agents, and GoHighLevel CRM pipelines and funnels, and also builds web apps (including with Bubble). Visitors can book a free 30-minute automation audit at https://cal.com/jubril-toheeb-rgh9vp/30min. Be extremely helpful and concise." },
+        { role: 'system', content: "You are an AI assistant for Jubril Toheeb, a No-Code Developer, AI Solutions Developer and Automation Specialist with 3+ years of Bubble.io experience. He builds custom web apps, SaaS platforms and MVPs (Bubble.io, Xano, Supabase), AI-powered applications (OpenAI, Claude, Vapi AI, ElevenLabs, LangChain), business automations (n8n, Make.com, Zapier), GoHighLevel CRMs, backend and API integrations, and Stripe payments and subscriptions. Visitors can book a free 30-minute discovery call at https://cal.com/jubril-toheeb-rgh9vp/30min. Be extremely helpful and concise." },
         ...messages.map(m => ({
           role: m.role === 'ai' ? 'assistant' : 'user',
           content: m.text

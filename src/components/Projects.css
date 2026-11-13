@@ -5,11 +5,13 @@
     gap: 1.5rem;
     grid-template-areas:
         "p8 p8"
-        "p1 p1"
-        "p2 p3"
-        "p4 p3"
-        "p5 p6"
-        "p7 p7";
+        "p10 p10"
+        "p12 p12"
+        "p9 p1"
+        "p9 p3"
+        "p11 p5"
+        "p2 p4"
+        "p6 p7";
 }
 
 @media (max-width: 768px) {
@@ -18,11 +20,15 @@
         grid-auto-rows: 300px;
         grid-template-areas:
             "p8"
+            "p10"
+            "p12"
+            "p9"
             "p1"
-            "p2"
             "p3"
-            "p4"
+            "p11"
             "p5"
+            "p2"
+            "p4"
             "p6"
             "p7";
     }
@@ -81,6 +87,12 @@
 .p8 {
     grid-area: p8;
 }
+
+.p9 { grid-area: p9; }
+.p10 { grid-area: p10; }
+.p11 { grid-area: p11; }
+.p12 { grid-area: p12; }
+
 
 .project-content {
     text-align: center;
