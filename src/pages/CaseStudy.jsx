@@ -204,10 +204,9 @@ const projectData = {
       '96 bilingual (French and English) email templates and 10 SMS snippets',
       'Verified live: a test card moved Pending to Due to Paid with partner totals following each step',
     ],
-    bgImage: '',
-    bgGradient: 'linear-gradient(135deg, #f97316 0%, #b91c1c 100%)',
-    gallery: [],
-    video: '',
+    bgImage: '/insurance_crm_1.webp',
+    gallery: ['/insurance_crm_1.webp', '/insurance_crm_2.webp', '/insurance_crm_3.webp'],
+    video: '/insurance_crm_demo.mp4',
   },
   11: {
     title: 'FDARegistry Portal',

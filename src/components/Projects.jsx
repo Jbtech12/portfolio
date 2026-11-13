@@ -8,7 +8,7 @@ const U = (id) => `https://images.unsplash.com/photo-${id}?w=900&q=82&auto=forma
 
 const projectData = [
   { id: 8, title: 'Automation Guardian',  type: 'AI GoHighLevel Workflow Auditor', bg: `linear-gradient(160deg, rgba(15,23,42,0.78) 0%, rgba(15,23,42,0.9) 100%), url("/automation_guardian_1.png") center top/cover no-repeat`, gridArea: 'p8' },
-  { id: 10, title: 'Insurance CRM Rebuild', type: 'GoHighLevel CRM & Partner Payouts', bg: 'linear-gradient(135deg, #f97316 0%, #b91c1c 100%)', gridArea: 'p10' },
+  { id: 10, title: 'Insurance CRM Rebuild', type: 'GoHighLevel CRM & Partner Payouts', bg: `linear-gradient(160deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.85) 100%), url("/insurance_crm_1.webp") center top/cover no-repeat`, gridArea: 'p10' },
   { id: 12, title: 'ZeroHold Cross-Docking', type: 'Logistics, Warehouse & Payment Automation', bg: `linear-gradient(160deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.85) 100%), url("/zerohold_4.webp") left top/cover no-repeat`, gridArea: 'p12' },
   { id: 9, title: 'DailyWins',            type: 'Mobile Habit Tracker App', bg: `linear-gradient(160deg, rgba(15,23,42,0.10) 0%, rgba(15,23,42,0.70) 100%), url("/dailywins_1.png") center top/cover no-repeat`, gridArea: 'p9' },
   { id: 1, title: 'Alliance Travel',      type: 'Online Booking Platform', bg: `linear-gradient(160deg, rgba(15,23,42,0.25) 0%, rgba(15,23,42,0.72) 100%), url("${U('1504150558240-0b4fd8946624')}") center/cover no-repeat`,    gridArea: 'p1' },
