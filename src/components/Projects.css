@@ -6,10 +6,10 @@
     grid-template-areas:
         "p8 p8"
         "p10 p10"
+        "p12 p12"
         "p9 p1"
         "p9 p3"
-        "p11 p12"
-        "p5 p13"
+        "p11 p5"
         "p2 p4"
         "p6 p7";
 }
@@ -21,13 +21,12 @@
         grid-template-areas:
             "p8"
             "p10"
+            "p12"
             "p9"
             "p1"
             "p3"
             "p11"
-            "p12"
             "p5"
-            "p13"
             "p2"
             "p4"
             "p6"
@@ -93,7 +92,7 @@
 .p10 { grid-area: p10; }
 .p11 { grid-area: p11; }
 .p12 { grid-area: p12; }
-.p13 { grid-area: p13; }
+
 
 .project-content {
     text-align: center;
