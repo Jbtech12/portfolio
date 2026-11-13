@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Cal, { getCalApi } from '@calcom/embed-react';
+import { trackLeadCreated } from '../lib/trackLead';
 import './CTA.css';
 
 const CTAParticles = lazy(() => import('./CTAParticles'));
+
+const CAL_NAMESPACE = 'discovery-call';
+const CAL_LINK = 'jubril-toheeb-rgh9vp/30min';
 
 const CTA = () => {
   const sectionRef = useRef();
@@ -46,6 +51,29 @@ const CTA = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Count a lead only when Cal.com confirms a booking was created —
+    // not when the calendar is opened, a slot is clicked or booking fails.
+    if (!showCalendar) return;
+    let cal;
+    let cancelled = false;
+    const onBookingSuccess = (e) => {
+      const booking = e.detail?.data ?? {};
+      trackLeadCreated(booking.uid ?? `${booking.eventTypeId}-${booking.startTime}`);
+    };
+    getCalApi({ namespace: CAL_NAMESPACE })
+      .then((api) => {
+        if (cancelled) return;
+        cal = api;
+        cal('on', { action: 'bookingSuccessfulV2', callback: onBookingSuccess });
+      })
+      .catch((err) => console.warn('[lead tracking] Cal.com embed unavailable:', err));
+    return () => {
+      cancelled = true;
+      cal?.('off', { action: 'bookingSuccessfulV2', callback: onBookingSuccess });
+    };
+  }, [showCalendar]);
+
   return (
     <section className="section-cta" id="contact" ref={sectionRef} aria-label="Book a meeting">
       <div className="cta-container">
@@ -64,11 +92,13 @@ const CTA = () => {
 
         <div className="calendly-wrapper cal-wrapper" ref={calWrapperRef} style={{ position: 'relative', zIndex: 2 }}>
           {showCalendar && (
-            <iframe
-              src="https://cal.com/jubril-toheeb-rgh9vp/30min"
-              style={{ width: '100%', height: '700px', border: 'none' }}
+            <Cal
+              namespace={CAL_NAMESPACE}
+              calLink={CAL_LINK}
+              style={{ width: '100%', height: '700px', overflow: 'auto' }}
+              config={{ layout: 'month_view' }}
               title="Book a meeting with Jubril"
-            ></iframe>
+            />
           )}
         </div>
       </div>
