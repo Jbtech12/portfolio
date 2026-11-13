@@ -1,16 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import CaseStudy from './pages/CaseStudy';
+import About from './pages/About';
 import DarkModeToggle from './components/DarkModeToggle';
-import AIChatBot from './components/AIChatBot';
+import BookCallDock from './components/BookCallDock';
 
 function App() {
   return (
     <>
       <DarkModeToggle />
-      <AIChatBot />
+      <BookCallDock />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/case-study/:id" element={<CaseStudy />} />
       </Routes>
     </>

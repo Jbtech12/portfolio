@@ -5,77 +5,193 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Projects.css';
 import { PROJECT_ORDER } from '../data/projectOrder';
 
-const U = (id) => `https://images.unsplash.com/photo-${id}?w=900&q=82&auto=format&fit=crop`;
-
+// media.kind:
+//   'screen' – a wide app screenshot, framed on a tinted panel
+//   'cover'  – an already-composed mockup that fills the panel
+//   'phones' – mobile screenshots shown side by side
 const projectData = [
-  { id: 8, title: 'Automation Guardian',  type: 'AI GoHighLevel Workflow Auditor', bg: `linear-gradient(160deg, rgba(15,23,42,0.78) 0%, rgba(15,23,42,0.9) 100%), url("/automation_guardian_1.png") center top/cover no-repeat`, gridArea: 'p8' },
-  { id: 10, title: 'Insurance CRM Rebuild', type: 'GoHighLevel CRM & Partner Payouts', bg: `linear-gradient(160deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.85) 100%), url("/insurance_crm_1.webp") center top/cover no-repeat`, gridArea: 'p10' },
-  { id: 12, title: 'ZeroHold Cross-Docking', type: 'Logistics, Warehouse & Payment Automation', bg: `linear-gradient(160deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.85) 100%), url("/zerohold_4.webp") left top/cover no-repeat`, gridArea: 'p12' },
-  { id: 9, title: 'DailyWins',            type: 'Mobile Habit Tracker App', bg: `linear-gradient(160deg, rgba(15,23,42,0.10) 0%, rgba(15,23,42,0.70) 100%), url("/dailywins_1.webp") center top/cover no-repeat`, gridArea: 'p9' },
-  { id: 1, title: 'Alliance Travel',      type: 'Online Booking Platform', bg: `linear-gradient(160deg, rgba(15,23,42,0.25) 0%, rgba(15,23,42,0.72) 100%), url("${U('1504150558240-0b4fd8946624')}") center/cover no-repeat`,    gridArea: 'p1' },
-  { id: 2, title: 'NBA Player Props',     type: 'Sports Analytics',        bg: `linear-gradient(160deg, rgba(15,23,42,0.18) 0%, rgba(15,23,42,0.75) 100%), url("${U('1577471488278-16eec37ffcc2')}") center/cover no-repeat`,     gridArea: 'p2' },
-  { id: 3, title: 'UloSpaces',            type: 'Rental Platform',         bg: `linear-gradient(160deg, rgba(15,23,42,0.22) 0%, rgba(15,23,42,0.70) 100%), url("${U('1642976975710-1d8890dbf5ab')}") center/cover no-repeat`,     gridArea: 'p3' },
-  { id: 4, title: 'Dr Golly',             type: 'Educational Platform',    bg: `linear-gradient(160deg, rgba(15,23,42,0.15) 0%, rgba(15,23,42,0.68) 100%), url("${U('1517554558809-9b4971b38f39')}") center/cover no-repeat`,     gridArea: 'p4' },
-  { id: 5, title: 'AI-Powered Hiring',    type: 'Recruiting Platform',     bg: `linear-gradient(160deg, rgba(15,23,42,0.28) 0%, rgba(15,23,42,0.78) 100%), url("${U('1694903089438-bf28d4697d9a')}") center/cover no-repeat`,     gridArea: 'p5' },
-  { id: 6, title: 'Stripe Subscriptions', type: 'Billing System',          bg: `linear-gradient(160deg, rgba(15,23,42,0.20) 0%, rgba(15,23,42,0.72) 100%), url("${U('1563013544-824ae1b704d3')}") center/cover no-repeat`,        gridArea: 'p6' },
-  { id: 7, title: 'Supermarket POS',      type: 'Point of Sale System',    bg: `linear-gradient(160deg, rgba(15,23,42,0.20) 0%, rgba(15,23,42,0.72) 100%), url("${U('1752057118708-cb96baf7ef45')}") center/cover no-repeat`,     gridArea: 'p7' },
-  { id: 11, title: 'FDARegistry Portal',  type: 'Compliance Management Platform', bg: `linear-gradient(160deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.82) 100%), url("/fda_1.webp") left top/cover no-repeat`, gridArea: 'p11' },
+  {
+    id: 8,
+    title: 'Automation Guardian',
+    type: 'AI SaaS · GoHighLevel Marketplace',
+    blurb: <>A SaaS that audits every GoHighLevel workflow, scores its health and explains each issue in plain English. <strong>It audited a 125-workflow account in under a second.</strong></>,
+    tags: ['Next.js', 'OpenAI', 'HighLevel API'],
+    media: { kind: 'screen', src: '/work/automation-guardian.webp' },
+    tint: '#6366f1',
+    featured: true,
+  },
+  {
+    id: 10,
+    title: 'Insurance CRM Rebuild',
+    type: 'GoHighLevel CRM & Partner Payouts',
+    blurb: <>Rebuilt an insurance advisory firm’s CRM in GoHighLevel: three pipelines, 96 bilingual email templates and <strong>automatic partner payout tracking that replaced their Excel sheet</strong>.</>,
+    tags: ['GoHighLevel', 'JavaScript', 'REST APIs'],
+    media: { kind: 'screen', src: '/work/insurance-crm.webp' },
+    tint: '#0ea5e9',
+    featured: true,
+  },
+  {
+    id: 12,
+    title: 'ZeroHold Cross-Docking',
+    type: 'Logistics, Warehouse & Payment Automation',
+    blurb: <>Connected Bubble, Jotform, n8n, Airtable and Stripe into <strong>one booking-to-payment flow</strong> for a cross-docking warehouse, with final bills captured automatically.</>,
+    tags: ['Bubble.io', 'n8n', 'Stripe', 'Airtable'],
+    media: { kind: 'screen', src: '/work/zerohold.webp' },
+    tint: '#f59e0b',
+    featured: true,
+  },
+  {
+    id: 9,
+    title: 'DailyWins',
+    type: 'Mobile Habit Tracker App',
+    blurb: <>A habit tracker for iOS and Android with one-tap check-ins, streaks and honest stats, <strong>shipped from a single TypeScript codebase</strong>.</>,
+    tags: ['Expo', 'React Native', 'Convex'],
+    media: { kind: 'phones', srcs: ['/work/dailywins-1.webp', '/work/dailywins-2.webp', '/work/dailywins-3.webp'] },
+    tint: '#22c55e',
+    featured: true,
+  },
+  {
+    id: 1,
+    title: 'Alliance Travel',
+    type: 'Online Booking Platform',
+    blurb: <>A scalable travel booking platform with <strong>third-party integrations</strong> and a fast, responsive booking flow.</>,
+    tags: ['Bubble.io', 'Third-party APIs'],
+    media: { kind: 'screen', src: '/work/alliance-travel.webp' },
+    tint: '#14b8a6',
+  },
+  {
+    id: 3,
+    title: 'UloSpaces',
+    type: 'Rental Platform',
+    blurb: <>A rental platform for Lagos where people find <strong>a home and a compatible flatmate</strong> in one place.</>,
+    tags: ['No-code'],
+    media: { kind: 'screen', src: '/work/ulospaces.webp' },
+    tint: '#f97316',
+  },
+  {
+    id: 11,
+    title: 'FDARegistry Portal',
+    type: 'Compliance Management Platform',
+    blurb: <>A multi-tenant compliance portal for companies, facilities and documents, with <strong>role-based access and built-in billing</strong>.</>,
+    tags: ['Bubble.io', 'Xano'],
+    media: { kind: 'screen', src: '/work/fdaregistry.webp' },
+    tint: '#3b82f6',
+  },
+  {
+    id: 5,
+    title: 'AI-Powered Hiring',
+    type: 'Recruiting Platform',
+    blurb: <>A job platform that uses AI to <strong>write job descriptions and screen candidates</strong>, plus personal resume feedback.</>,
+    tags: ['Bubble.io', 'OpenAI'],
+    media: { kind: 'screen', src: '/work/ai-hiring.webp' },
+    tint: '#8b5cf6',
+  },
+  {
+    id: 2,
+    title: 'NBA Player Props',
+    type: 'Sports Analytics',
+    blurb: <>A real-time analytics dashboard that shows <strong>player trends and hit rates instantly</strong>, built entirely in Bubble.io.</>,
+    tags: ['Bubble.io', 'Chart.js'],
+    media: { kind: 'screen', src: '/work/nba-props.webp' },
+    tint: '#ef4444',
+  },
+  {
+    id: 4,
+    title: 'Dr Golly',
+    type: 'Educational Platform',
+    blurb: <>An education platform bringing <strong>expert courses and practical resources</strong> for families into one place.</>,
+    tags: ['Bubble.io', 'Stripe', 'Brevo'],
+    media: { kind: 'cover', src: '/work/dr-golly.webp' },
+    tint: '#84cc16',
+  },
+  {
+    id: 6,
+    title: 'Stripe Subscriptions',
+    type: 'Billing System',
+    blurb: <>A Stripe billing system where users <strong>upgrade, downgrade and cancel plans themselves</strong>, with invoices handled automatically.</>,
+    tags: ['Bubble.io', 'Stripe'],
+    media: { kind: 'cover', src: '/work/stripe.webp' },
+    tint: '#635bff',
+  },
+  {
+    id: 7,
+    title: 'Supermarket POS',
+    type: 'Point of Sale System',
+    blurb: <>A point-of-sale system with <strong>a fast cashier screen</strong> and a real-time stock and sales dashboard for owners.</>,
+    tags: ['React', 'Supabase'],
+    media: { kind: 'cover', src: '/work/pos.webp' },
+    tint: '#10b981',
+  },
 ];
 
 const orderedProjects = PROJECT_ORDER.map((id) => projectData.find((p) => p.id === id));
+
+const ProjectMedia = ({ media, title, eager }) => {
+  const loading = eager ? 'eager' : 'lazy';
+  if (media.kind === 'phones') {
+    return (
+      <div className="pc-phones">
+        {media.srcs.map((src, i) => (
+          <img key={src} src={src} alt={`${title} app screen ${i + 1}`} loading={loading} decoding="async" />
+        ))}
+      </div>
+    );
+  }
+  return (
+    <img
+      className={media.kind === 'cover' ? 'pc-cover' : 'pc-screen'}
+      src={media.src}
+      alt={`${title} screenshot`}
+      loading={loading}
+      decoding="async"
+    />
+  );
+};
 
 const Projects = () => {
   const gridRef = useRef();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const cards = gridRef.current.querySelectorAll('.project-card');
-      gsap.from(cards, {
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: 'top 82%',
-          once: true,
-        },
-        opacity: 0,
-        y: 70,
-        scale: 0.94,
-        stagger: { amount: 0.55, from: 'start' },
-        duration: 0.85,
-        ease: 'power3.out',
+      gsap.utils.toArray('.project-card').forEach((card) => {
+        gsap.from(card, {
+          scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          ease: 'power3.out',
+        });
       });
     }, gridRef);
     return () => ctx.revert();
   }, []);
 
-  const onMouseMove = (e) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width  / 2) * 0.12;
-    const y = (e.clientY - rect.top  - rect.height / 2) * 0.12;
-    gsap.to(card, { x, y, duration: 0.4, ease: 'power2.out', overwrite: 'auto' });
-  };
-
-  const onMouseLeave = (e) => {
-    gsap.to(e.currentTarget, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1,0.4)', overwrite: 'auto' });
-  };
-
   return (
     <div className="projects-grid" ref={gridRef}>
-      {orderedProjects.map((project) => (
+      {orderedProjects.map((project, i) => (
         <Link
           to={`/case-study/${project.id}`}
           key={project.id}
-          className={`project-card ${project.gridArea}`}
-          style={{ background: project.bg, textDecoration: 'none' }}
-          onMouseMove={onMouseMove}
-          onMouseLeave={onMouseLeave}
+          className={`project-card${project.featured ? ' is-featured' : ''}`}
+          style={{ '--tint': project.tint }}
         >
-          <div className="project-content">
-            <h3 style={{ color: 'white' }}>{project.title}</h3>
-            <p style={{ color: 'white', opacity: 0.8 }}>{project.type}</p>
+          <div className="pc-text">
+            <div className="pc-heading">
+              <h3>{project.title}</h3>
+              <span className="pc-type">{project.type}</span>
+            </div>
+            <p className="pc-blurb">{project.blurb}</p>
           </div>
-          <div className="project-hover-overlay">
-            <span>View Case Study</span>
+
+          <div className={`pc-media pc-media-${project.media.kind}`}>
+            <ProjectMedia media={project.media} title={project.title} eager={i === 0} />
+          </div>
+
+          <div className="pc-footer">
+            <ul className="pc-tags" aria-label="Built with">
+              {project.tags.map((t) => <li key={t}>{t}</li>)}
+            </ul>
+            <span className="pc-link">View case study <span aria-hidden="true">→</span></span>
           </div>
         </Link>
       ))}

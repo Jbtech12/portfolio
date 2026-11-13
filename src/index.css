@@ -182,3 +182,8 @@ h1 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Room for the floating "Book a call" dock so it never covers the last lines of a page */
+#root {
+  padding-bottom: 5rem;
+}

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
@@ -12,6 +14,18 @@ import '../index.css';
 const BASE_URL = 'https://www.jubriltoheeb70.com';
 
 function Home() {
+  const location = useLocation();
+
+  // Arriving from a case study via the "Work" / "Book a call" dock.
+  useEffect(() => {
+    const id = location.state?.scrollTo;
+    if (!id) return;
+    const frame = requestAnimationFrame(() =>
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [location.state]);
+
   return (
     <>
       <Helmet>
@@ -29,8 +43,13 @@ function Home() {
         <main id="main-content" className="container">
           <Hero />
 
-          <section id="projects" aria-label="Featured Work" style={{ marginTop: '8rem' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', letterSpacing: '-0.03em', textAlign: 'center' }}>Featured Work</h2>
+          <section id="projects" aria-labelledby="projects-heading" style={{ marginTop: '8rem', scrollMarginTop: '2rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+              <h2 id="projects-heading" style={{ fontSize: '2.5rem', marginBottom: '0.75rem', letterSpacing: '-0.03em' }}>Featured Work</h2>
+              <p className="text-muted" style={{ fontSize: '1.05rem', maxWidth: '560px', margin: '0 auto' }}>
+                Real products I’ve built for founders and businesses: web apps, AI tools, CRMs and automations.
+              </p>
+            </div>
             <Projects />
           </section>
 
