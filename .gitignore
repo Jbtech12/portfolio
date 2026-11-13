@@ -28,3 +28,6 @@ dist-ssr
 nocode-portfolio/
 *.mov
 *.mp4
+# Videos shown on the site must be committed
+!public/*.mp4
+!public/*.mov

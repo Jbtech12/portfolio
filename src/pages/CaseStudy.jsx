@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CTA from '../components/CTA';
+import { PROJECT_ORDER } from '../data/projectOrder';
 import './CaseStudy.css';
 
 const projectData = {
@@ -165,6 +166,7 @@ const projectData = {
     bgImage: '/automation_guardian_1.png',
     gallery: ['/automation_guardian_2.png', '/automation_guardian_3.png', '/automation_guardian_4.png'],
     video: '/automation_guardian.mp4',
+    videoPoster: '/automation_guardian_poster.webp',
   },
   9: {
     title: 'DailyWins',
@@ -182,8 +184,8 @@ const projectData = {
       'Real-time sync and secure sign-in with Convex and Clerk',
       'Light and dark mode, with habit reminders through push notifications',
     ],
-    bgImage: '/dailywins_1.png',
-    gallery: ['/dailywins_1.png', '/dailywins_2.png', '/dailywins_3.png', '/dailywins_4.png'],
+    bgImage: '/dailywins_1.webp',
+    gallery: ['/dailywins_1.webp', '/dailywins_2.webp', '/dailywins_3.webp', '/dailywins_4.webp'],
     galleryPhone: true,
     video: '',
   },
@@ -207,6 +209,7 @@ const projectData = {
     bgImage: '/insurance_crm_1.webp',
     gallery: ['/insurance_crm_1.webp', '/insurance_crm_2.webp', '/insurance_crm_3.webp'],
     video: '/insurance_crm_demo.mp4',
+    videoPoster: '/insurance_crm_demo_poster.webp',
   },
   11: {
     title: 'FDARegistry Portal',
@@ -366,7 +369,7 @@ const CaseStudy = () => {
   }
 
   /* Prev / next */
-  const allIds      = Object.keys(projectData).map(Number);
+  const allIds      = PROJECT_ORDER;
   const currentIdx  = allIds.indexOf(parseInt(id));
   const prevId      = allIds[currentIdx - 1];
   const nextId      = allIds[currentIdx + 1];
@@ -458,7 +461,7 @@ const CaseStudy = () => {
             className="cs-hero-img"
             ref={bannerRef}
             style={{
-              backgroundImage: project.bgImage ? `url("${project.bgImage}")` : project.bgGradient,
+              backgroundImage: `url("${project.bgImage}")`,
               ...(project.galleryPhone && { backgroundPosition: 'center top' }),
             }}
           />
@@ -482,7 +485,7 @@ const CaseStudy = () => {
         <section className="cs-gallery-section" ref={galleryRef}>
           <div className="cs-section-eyebrow">// GALLERY</div>
           <h3 className="cs-section-heading">Project Screenshots</h3>
-          <div className={`cs-gallery-grid ${project.galleryPhone ? 'cs-gallery-phone' : `cs-gallery-${project.gallery.length}`}`}>
+          <div className={`cs-gallery-grid${project.galleryPhone ? ' cs-gallery-phone' : ''}`}>
             {project.gallery.map((src, i) => (
               <div
                 key={i}
@@ -512,7 +515,7 @@ const CaseStudy = () => {
             <div className="cs-section-eyebrow">// DEMO</div>
             <h3 className="cs-section-heading">Project Walkthrough</h3>
             <div className="cs-video-container">
-              <video controls className="cs-video-player" src={project.video}>
+              <video controls preload="metadata" playsInline poster={project.videoPoster} className="cs-video-player" src={project.video}>
                 Your browser does not support video.
               </video>
             </div>

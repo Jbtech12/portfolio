@@ -220,13 +220,9 @@
 
 .cs-gallery-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 1.5rem;
 }
-.cs-gallery-3 { grid-template-columns: repeat(3, 1fr); }
-.cs-gallery-2 { grid-template-columns: repeat(2, 1fr); }
-.cs-gallery-1 { grid-template-columns: 1fr; }
-.cs-gallery-4 { grid-template-columns: repeat(2, 1fr); }
-.cs-gallery-6 { grid-template-columns: repeat(3, 1fr); }
 .cs-gallery-phone { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
 .cs-gallery-phone .cs-gallery-img { aspect-ratio: 1206 / 2622; }
 
@@ -455,8 +451,6 @@
 @media (max-width: 900px) {
   .cs-container { padding: 0 1.5rem; }
   .cs-meta-cards { grid-template-columns: 1fr 1fr; }
-  .cs-gallery-6,
-  .cs-gallery-3 { grid-template-columns: repeat(2, 1fr); }
   .cs-hero-wrap { height: 380px; }
   .cs-story-panel { padding: 2.5rem 2rem; }
   .cs-results-section { padding: 2rem 1.5rem; }
@@ -464,10 +458,6 @@
 }
 @media (max-width: 600px) {
   .cs-meta-cards { grid-template-columns: 1fr; }
-  .cs-gallery-6,
-  .cs-gallery-4,
-  .cs-gallery-3,
-  .cs-gallery-2 { grid-template-columns: 1fr; }
   .cs-title { font-size: 2.8rem; }
   .cs-hero-wrap { height: 280px; }
 }
