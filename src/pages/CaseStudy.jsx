@@ -25,7 +25,7 @@ const projectData = {
     ],
     bgImage: '/picture 1.png',
     gallery: ['/picture 1.png', '/picture 2.png', '/picture 3.png'],
-    video: '/Alliance travel video.mov',
+    video: '',
   },
   2: {
     title: 'NBA Player Props',
@@ -45,7 +45,7 @@ const projectData = {
     ],
     bgImage: '/NBA 1.png',
     gallery: ['/NBA 1.png', '/NBA 2.png'],
-    video: '/case study 2.mov',
+    video: '',
   },
   3: {
     title: 'UloSpaces',
@@ -65,7 +65,7 @@ const projectData = {
     ],
     bgImage: '/ulospace 1.png',
     gallery: ['/ulospace 1.png', '/ulospace 2.png'],
-    video: '/ulospaces.co.mp4',
+    video: '',
   },
   4: {
     title: 'Dr Golly',
@@ -105,7 +105,7 @@ const projectData = {
     ],
     bgImage: '/landing job.png',
     gallery: ['/job page.png', '/landing job.png'],
-    video: '/Job Platform.mp4',
+    video: '',
   },
   6: {
     title: 'Stripe Subscriptions',
@@ -204,10 +204,9 @@ const projectData = {
       '96 bilingual (French and English) email templates and 10 SMS snippets',
       'Verified live: a test card moved Pending to Due to Paid with partner totals following each step',
     ],
-    bgImage: '',
-    bgGradient: 'linear-gradient(135deg, #f97316 0%, #b91c1c 100%)',
-    gallery: [],
-    video: '',
+    bgImage: '/insurance_crm_1.webp',
+    gallery: ['/insurance_crm_1.webp', '/insurance_crm_2.webp', '/insurance_crm_3.webp'],
+    video: '/insurance_crm_demo.mp4',
   },
   11: {
     title: 'FDARegistry Portal',
