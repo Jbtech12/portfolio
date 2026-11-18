@@ -10,7 +10,7 @@ const BASE_URL = 'https://www.jubriltoheeb70.com';
 
 const facts = [
   { value: '3+ years', label: 'building with Bubble.io' },
-  { value: '12', label: 'case studies in this portfolio' },
+  { value: '13', label: 'case studies in this portfolio' },
   { value: 'CS', label: 'background in Computer Science' },
 ];
 

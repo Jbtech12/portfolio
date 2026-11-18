@@ -117,6 +117,40 @@
     transform: scale(1.02);
 }
 
+/* Desktop + phone: the phone overlaps the bottom-right of the screen */
+.pc-media-combo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4% 9% 4% 4%;
+}
+
+.pc-combo {
+    position: relative;
+    max-height: 100%;
+    display: flex;
+}
+
+.pc-combo .pc-screen {
+    max-height: 100%;
+}
+
+.pc-combo-phone {
+    position: absolute;
+    right: -9%;
+    bottom: -4%;
+    width: 21%;
+    height: auto;
+    border-radius: 18px;
+    border: 5px solid #111;
+    box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.5);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .pc-combo-phone {
+    transform: translateY(-8px);
+}
+
 /* Composed mockup: fills the panel */
 .pc-cover {
     width: 100%;
@@ -212,6 +246,11 @@
         padding: 4.5%;
     }
 
+    .pc-combo-phone {
+        border-width: 3px;
+        border-radius: 10px;
+    }
+
     .pc-media-phones {
         aspect-ratio: 1 / 1;
     }
@@ -226,6 +265,7 @@
 @media (prefers-reduced-motion: reduce) {
     .pc-media,
     .pc-screen,
+    .pc-combo-phone,
     .pc-cover,
     .pc-phones img,
     .pc-link span {
