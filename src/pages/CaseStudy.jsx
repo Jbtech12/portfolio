@@ -253,6 +253,27 @@ const projectData = {
     gallery: ['/zerohold_1.webp', '/zerohold_2.webp', '/zerohold_3.webp', '/zerohold_4.webp', '/zerohold_5.webp', '/zerohold_6.webp'],
     video: '',
   },
+  13: {
+    title: 'ARCO Charity Platform',
+    type: 'Nonprofit Website, Donations & Admin Platform',
+    role: 'Full-stack Developer',
+    timeline: 'Completed',
+    techStack: 'Next.js, TypeScript, Convex, Clerk, Paystack, Resend, UploadThing, Tailwind CSS, shadcn/ui, Vercel',
+    overview: 'A public website and internal operations platform for AL-MUSTA\'AN Ramadan and Charity Organisation (ARCO), a faith-driven charity supporting families facing hunger, illness and hardship in Nigeria.',
+    challenge: 'ARCO needed more than a brochure site. Donors had to be able to give in about a minute and trust where their money went; the community needed clear guidance on Zakat, Fidya and other obligations; and the team needed one place to publish articles, run events, manage volunteers and donors, and confirm payments, without spreadsheets.',
+    solution: 'I built ARCO in Next.js with Convex as a real-time backend and Clerk for authentication. The public site leads with donations: donors pick one-time or monthly giving, choose the cause (food support, hospital aid, Ramadan, emergency, education or general), can give anonymously, and pay through Paystack or by bank transfer, which the admin team confirms. Receipts and thank-you emails go out through Resend. A calculators page covers Zakat (gold or silver nisab), Zakat al-Fitr, Fidya, Kaffarah and Diya, each linking straight to a donation. There is an articles CMS with a markdown editor and image uploads through UploadThing, a dual Gregorian and Hijri events calendar, volunteer sign-up and a newsletter. Behind sign-in, a responsive admin dashboard manages articles, events, donors, volunteers, subscribers and team roles, with live stats and an analytics and reporting view.',
+    results: [
+      'Donation-first public site: give in about a minute, one-time or monthly, by cause, with an anonymous option',
+      'Paystack payments plus bank transfer with an admin confirmation flow',
+      'Zakat, Zakat al-Fitr, Fidya, Kaffarah and Diya calculators that lead straight to giving',
+      'Articles CMS, dual Gregorian and Hijri events calendar, volunteer sign-up and newsletter',
+      'Role-based admin dashboard for donors, volunteers, events, articles and team, with analytics and reporting',
+      'Fully responsive, from the public pages to the admin dashboard',
+    ],
+    bgImage: '/arco_1.webp',
+    gallery: ['/arco_1.webp', '/arco_2.webp', '/arco_3.webp', '/arco_4.webp', '/arco_5.webp'],
+    video: '',
+  },
 };
 
 /* ── Small helpers ── */

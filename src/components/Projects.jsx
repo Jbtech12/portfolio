@@ -9,7 +9,18 @@ import { PROJECT_ORDER } from '../data/projectOrder';
 //   'screen' – a wide app screenshot, framed on a tinted panel
 //   'cover'  – an already-composed mockup that fills the panel
 //   'phones' – mobile screenshots shown side by side
+//   'combo'  – desktop screenshot with a phone screen overlapping it
 const projectData = [
+  {
+    id: 13,
+    title: 'ARCO Charity Platform',
+    type: 'Nonprofit Website, Donations & Admin',
+    blurb: <>A donation-first platform for an Islamic charity in Nigeria: Paystack and bank-transfer giving, Zakat, Fidya and Kaffarah calculators, articles, events and <strong>a full admin dashboard for donors, volunteers and reporting</strong>.</>,
+    tags: ['Next.js', 'Convex', 'Clerk', 'Paystack'],
+    media: { kind: 'combo', src: '/work/arco.webp', phone: '/work/arco-phone.webp' },
+    tint: '#1e3a8a',
+    featured: true,
+  },
   {
     id: 8,
     title: 'Automation Guardian',
@@ -134,6 +145,14 @@ const ProjectMedia = ({ media, title, eager }) => {
         {media.srcs.map((src, i) => (
           <img key={src} src={src} alt={`${title} app screen ${i + 1}`} loading={loading} decoding="async" />
         ))}
+      </div>
+    );
+  }
+  if (media.kind === 'combo') {
+    return (
+      <div className="pc-combo">
+        <img className="pc-screen" src={media.src} alt={`${title} website`} loading={loading} decoding="async" />
+        <img className="pc-combo-phone" src={media.phone} alt={`${title} on mobile`} loading={loading} decoding="async" />
       </div>
     );
   }
